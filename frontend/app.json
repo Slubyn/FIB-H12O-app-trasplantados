@@ -2,6 +2,9 @@
   "expo": {
     "name": "app-H12O",
     "slug": "app-H12O",
+    "experimental": {
+      "router": true
+    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
