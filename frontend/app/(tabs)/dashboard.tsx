@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity,  NativeScrollEven
 import { Ionicons, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 
 const screenWidth = Dimensions.get('window').width;
+const cardWidth = screenWidth * 0.7 + 20;
 
 const Dashboard: React.FC = () => {
   //para que los dots se desplacen
@@ -10,7 +11,7 @@ const Dashboard: React.FC = () => {
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const scrollX = event.nativeEvent.contentOffset.x;
-    const index = Math.round(scrollX / screenWidth * 0.7 + 20); // 150 de ancho + 15 de margen
+    const index = Math.round(scrollX / cardWidth); // 150 de ancho + 15 de margen
     setActiveIndex(index);
   };
 
@@ -29,9 +30,10 @@ const Dashboard: React.FC = () => {
 
       <ScrollView
         horizontal
+        pagingEnabled
         showsHorizontalScrollIndicator={false}
         style={styles.carousel}
-        onScroll={handleScroll}
+        onMomentumScrollEnd={handleScroll}
         scrollEventThrottle={16}
       >
         {cards.map((card, index) => (
@@ -152,7 +154,11 @@ const styles = StyleSheet.create({
     buttonText: {
       marginLeft: 15,
       fontSize: 16,
-      flexShrink: 1,
+      flex: 1,
       flexWrap: 'wrap',
-    },
+      flexShrink: 1,
+      textAlign: 'left',
+    }
+    
+
   });
