@@ -14,6 +14,8 @@ import {
 import { useLocalSearchParams, useRouter } from "expo-router";
 import temas from "@/app/guia/temas.json";
 import { iconMap } from "@/constants/iconMap";
+import { useNavigation } from "@react-navigation/native";
+import { useEffect } from "react";
 
 export default function GuiaDetalleScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -22,6 +24,13 @@ export default function GuiaDetalleScreen() {
   const seccionRefs = useRef<Record<string, number>>({});
 
   const tema = temas.find((t) => t.id === id); // Busca el tema en el JSON
+
+  const navigation = useNavigation();
+  useEffect(() => {
+    if (tema) {
+      navigation.setOptions({ title: tema.titulo });
+    }
+  }, [tema]);
 
   const scrollToSection = (titulo: string) => {
     const y = seccionRefs.current[titulo];
@@ -49,12 +58,12 @@ export default function GuiaDetalleScreen() {
   return (
     <View style={styles.container}>
       {/* Header */}
-      <View style={styles.header}>
+      {/* <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
           <Text style={styles.backButton}>←</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{tema.titulo}</Text>
-      </View>
+      </View> */}
 
       {/* Tabs de secciones */}
       {tema.secciones.length > 1 && (
@@ -99,7 +108,7 @@ export default function GuiaDetalleScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff", paddingTop: 50 },
+  container: { flex: 1, backgroundColor: "#fff", paddingTop: 20 },
   header: {
     flexDirection: "row",
     alignItems: "center",
@@ -113,7 +122,7 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     flexWrap: "wrap",
   },
-  tabs: { flexDirection: "row", paddingHorizontal: 10, marginBottom: 10 },
+  tabs: { flexDirection: "row", paddingHorizontal: 10, marginBottom: 15 },
   tab: {
     marginRight: 12,
     fontSize: 14,
@@ -131,7 +140,7 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     gap: 10,
   },
-  icon: { width: 32, height: 32, marginTop: 2 },
+  icon: { width: 50, height: 50, marginTop: 5 },
   text: { flex: 1, fontSize: 15, lineHeight: 22 },
   title: {
     fontSize: 20,

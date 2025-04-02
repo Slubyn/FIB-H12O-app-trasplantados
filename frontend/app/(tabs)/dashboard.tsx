@@ -34,7 +34,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Hola, Maricarmen</Text>
+      <Text style={styles.title}>Hola, " Nombre_Usuario " </Text>
       <Text style={styles.subtitle}>Guía de recomendaciones</Text>
 
       {/* Carrusel de tarjetas */}
