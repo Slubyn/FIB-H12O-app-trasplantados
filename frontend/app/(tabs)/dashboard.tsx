@@ -8,12 +8,13 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
   Dimensions,
+  FlatList
 } from "react-native";
 import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router"; // ✅ Necesario para navegar
 
 const screenWidth = Dimensions.get("window").width;
-const cardWidth = screenWidth * 0.7 + 20;
+const CARD_WIDTH = screenWidth * 0.7;
 
 const Dashboard: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -21,7 +22,7 @@ const Dashboard: React.FC = () => {
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const scrollX = event.nativeEvent.contentOffset.x;
-    const index = Math.round(scrollX / cardWidth);
+    const index = Math.round(scrollX / (CARD_WIDTH + 20));
     setActiveIndex(index);
   };
 
@@ -34,7 +35,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Hola, " Nombre_Usuario " </Text>
+      <Text style={styles.title}>Hola, Rebeca</Text>
       <Text style={styles.subtitle}>Guía de recomendaciones</Text>
 
       {/* Carrusel de tarjetas */}
@@ -45,6 +46,7 @@ const Dashboard: React.FC = () => {
         style={styles.carousel}
         onMomentumScrollEnd={handleScroll}
         scrollEventThrottle={16}
+        contentContainerStyle={{ paddingRight: 20 }}
       >
         {cards.map((card, index) => (
           <TouchableOpacity
@@ -61,6 +63,7 @@ const Dashboard: React.FC = () => {
             <Text style={styles.cardText}>{card.text}</Text>
           </TouchableOpacity>
         ))}
+        <View style={{ width: 40 }} /> {/* espacio final */}
       </ScrollView>
 
       {/* Puntos de navegación */}
@@ -124,7 +127,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   card: {
-    width: screenWidth * 0.5,
+    width: CARD_WIDTH,
     height: 130,
     borderRadius: 12,
     backgroundColor: "#e0e0e0",
