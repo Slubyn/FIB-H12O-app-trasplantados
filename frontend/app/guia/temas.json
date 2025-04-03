@@ -2,13 +2,15 @@
   {
     "id": "01",
     "titulo": "Inmunosupresión, adherencia terapéutica y efectos secundarios",
+    "imagenFondo": "javaImagen.png",
     "secciones": [
       {
         "titulo": "¿Qué es la inmunosupresión?",
         "contenido": [
           {
             "icono": "pildora.png",
-            "texto": "La inmunosupresión es la terapia clave en el trasplante. En algunos casos se inicia antes del trasplante y se ajusta de manera individualizada, una vez el paciente ha recibido el órgano.  Sin el tratamiento inmunosupresor, el sistema inmunitario responde agresivamente contra un trasplante, del mismo modo que lo hace contra las infecciones. Esta respuesta, que es conocida como rechazo, puede ocasionar la pérdida del órgano, por eso es muy importante que el tratamiento se tome diariamente. Deberá tomar esta medicación de por vida."
+            "texto": "La inmunosupresi\u00F3n es la terapia clave\r\nen el trasplante. En algunos casos se\r\ninicia antes del trasplante y se ajusta\r\nde manera individualizada, una vez el\r\npaciente ha recibido el \u00F3rgano. Sin el\r\ntratamiento inmunosupresor, el sistema\r\ninmunitario responde agresivamente contra un trasplante, del mismo modo que lo\r\nhace contra las infecciones. Esta respuesta, que es conocida como rechazo, puede\r\nocasionar la p\u00E9rdida del \u00F3rgano, por eso\r\nes muy importante que el tratamiento\r\nse tome diariamente. Deber\u00E1 tomar esta\r\nmedicaci\u00F3n de por vida",
+            "imagen": "javaImagen.png"
           }
         ]
       },
@@ -17,7 +19,8 @@
         "contenido": [
           {
             "icono": "foto2.png",
-            "texto": "Cada medicamento tiene unas horas\r\nadecuadas para su toma, especialmente\r\nlos inmunosupresores. No debe alterarse\r\nsin consulta el horario de medicaci\u00F3n\r\nque se ha prescrito por el centro. Los inmunosupresores deben tomarse siempre\r\nen ayunas, respetando siempre el mismo\r\ntiempo hasta el momento del desayuno,\r\nque generalmente ser\u00E1 entre media hora\r\ny 1 hora. En caso de olvidar alguna toma,\r\nse debe consultar al m\u00E9dico de trasplante\r\ny jam\u00E1s duplicar la dosis."
+            "texto": "Cada medicamento tiene unas horas\r\nadecuadas para su toma, especialmente\r\nlos inmunosupresores. No debe alterarse\r\nsin consulta el horario de medicaci\u00F3n\r\nque se ha prescrito por el centro. Los inmunosupresores deben tomarse siempre\r\nen ayunas, respetando siempre el mismo\r\ntiempo hasta el momento del desayuno,\r\nque generalmente ser\u00E1 entre media hora\r\ny 1 hora. En caso de olvidar alguna toma,\r\nse debe consultar al m\u00E9dico de trasplante\r\ny jam\u00E1s duplicar la dosis.",
+            "imagen": "ensalada.png"
           }
         ]
       },
@@ -26,31 +29,38 @@
         "contenido": [
           {
             "icono": "pastilla.png",
-            "texto": "Siempre, tendrá que tomar medicación inmunosupresora en las dosis indicadas por su nefrólogo. Es su responsabilidad tomar estos medicamentos mientras tenga el riñón trasplantado."
+            "texto": "Siempre, tendrá que tomar medicación inmunosupresora en las dosis indicadas por su nefrólogo. Es su responsabilidad tomar estos medicamentos mientras tenga el riñón trasplantado.",
+            "imagen": "ensalada.png"
           },
           {
             "icono": "alarma.png",
-            "texto": "Es extremadamente importante no olvidarse de tomar la medicación inmunosupresora nunca."
+            "texto": "Es extremadamente importante no olvidarse de tomar la medicación inmunosupresora nunca.",
+            "imagen": "ensalada.png"
           },
           {
             "icono": "vomito.png",
-            "texto": "En caso de la aparición de vómitos inmediatamente después de tomar la medicación, deberá repetir la dosis una vez hayan desaparecido las náuseas y/o los vómitos, y siempre la misma cantidad."
+            "texto": "En caso de la aparición de vómitos inmediatamente después de tomar la medicación, deberá repetir la dosis una vez hayan desaparecido las náuseas y/o los vómitos, y siempre la misma cantidad.",
+            "imagen": "ensalada.png"
           },
           {
             "icono": "efectos.png",
-            "texto": "Puede ser frecuente la aparición de efectos secundarios en relación con la toma de fármacos inmunosupresores como hipertensión, diabetes, osteoporosis y aumento de peso."
+            "texto": "Puede ser frecuente la aparición de efectos secundarios en relación con la toma de fármacos inmunosupresores como hipertensión, diabetes, osteoporosis y aumento de peso.",
+            "imagen": "ensalada.png"
           },
           {
             "icono": "sintomas.png",
-            "texto": "A veces pueden aparecer otros síntomas como la caída del cabello, hirsutismo o aparición de vello en otras zonas, aparición de acné, temblores, sequedad cutánea, etc., que son temporales."
+            "texto": "A veces pueden aparecer otros síntomas como la caída del cabello, hirsutismo o aparición de vello en otras zonas, aparición de acné, temblores, sequedad cutánea, etc., que son temporales.",
+            "imagen": "ensalada.png"
           },
           {
             "icono": "alerta.png",
-            "texto": "En cualquier caso, no deberá suprimir ni añadir medicamentos."
+            "texto": "En cualquier caso, no deberá suprimir ni añadir medicamentos.",
+            "imagen": "ensalada.png"
           },
           {
             "icono": "medico.png",
-            "texto": "Siempre que vaya a tomar un fármaco nuevo (con o sin receta, e incluso productos de herbolario) es conveniente que lo consulte previamente con su médico y advierta siempre a otros especialistas que usted es una persona con trasplante renal."
+            "texto": "Siempre que vaya a tomar un fármaco nuevo (con o sin receta, e incluso productos de herbolario) es conveniente que lo consulte previamente con su médico y advierta siempre a otros especialistas que usted es una persona con trasplante renal.",
+            "imagen": "ensalada.png"
           }
         ]
       }
@@ -59,13 +69,15 @@
   {
     "id": "02",
     "titulo": "Peligros de la automedicación",
+    "imagenFondo": "nutricion-bg.jpg",
     "secciones": [
       {
         "titulo": "Riesgos comunes",
         "contenido": [
           {
             "icono": "medicamento-roto.png",
-            "texto": "La toma de medicamentos por iniciativa\r\npropia sin prescripci\u00F3n o seguimiento\r\nm\u00E9dico puede ser perjudicial. Las consecuencias de un uso irresponsable de los\r\nf\u00E1rmacos pueden ser: "
+            "texto": "La toma de medicamentos por iniciativa\r\npropia sin prescripci\u00F3n o seguimiento\r\nm\u00E9dico puede ser perjudicial. Las consecuencias de un uso irresponsable de los\r\nf\u00E1rmacos pueden ser: ",
+            "imagen": "ensalada.png"
           }
         ]
       },
@@ -74,7 +86,8 @@
         "contenido": [
           {
             "icono": "toxicidad.png",
-            "texto": "Todos los medicamentos tienen cierto\r\ngrado de toxicidad, y el uso excesivo\r\npuede da\u00F1ar \u00F3rganos como los ri\u00F1ones y\r\nel h\u00EDgado."
+            "texto": "Todos los medicamentos tienen cierto\r\ngrado de toxicidad, y el uso excesivo\r\npuede da\u00F1ar \u00F3rganos como los ri\u00F1ones y\r\nel h\u00EDgado.",
+            "imagen": "ensalada.png"
           }
         ]
       },
@@ -83,7 +96,8 @@
         "contenido": [
           {
             "icono": "toxicidad.png",
-            "texto": "Todos los medicamentos tienen cierto\r\ngrado de toxicidad, y el uso excesivo\r\npuede da\u00F1ar \u00F3rganos como los ri\u00F1ones y\r\nel h\u00EDgado."
+            "texto": "Todos los medicamentos tienen cierto\r\ngrado de toxicidad, y el uso excesivo\r\npuede da\u00F1ar \u00F3rganos como los ri\u00F1ones y\r\nel h\u00EDgado.",
+            "imagen": "ensalada.png"
           }
         ]
       },
@@ -92,7 +106,8 @@
         "contenido": [
           {
             "icono": "toxicidad.png",
-            "texto": "El uso indebido de los medicamentos\r\nrecetados en formas, dosis o finalidades\r\ndiferentes a las prescritas, puede llevar al\r\nabuso, dependencia y adicci\u00F3n."
+            "texto": "El uso indebido de los medicamentos\r\nrecetados en formas, dosis o finalidades\r\ndiferentes a las prescritas, puede llevar al\r\nabuso, dependencia y adicci\u00F3n.",
+            "imagen": "ensalada.png"
           }
         ]
       },
@@ -101,7 +116,8 @@
         "contenido": [
           {
             "icono": "toxicidad.png",
-            "texto": "En algunos casos, la automedicaci\u00F3n\r\npuede empeorar la enfermedad o incluso llevar a complicaciones graves."
+            "texto": "En algunos casos, la automedicaci\u00F3n\r\npuede empeorar la enfermedad o incluso llevar a complicaciones graves.",
+            "imagen": "ensalada.png"
           }
         ]
       },
@@ -110,7 +126,8 @@
         "contenido": [
           {
             "icono": "toxicidad.png",
-            "texto": "La automedicaci\u00F3n puede interactuar\r\ncon f\u00E1rmacos inmunosupresores y afectar\r\nsu eficacia."
+            "texto": "La automedicaci\u00F3n puede interactuar\r\ncon f\u00E1rmacos inmunosupresores y afectar\r\nsu eficacia.",
+            "imagen": "ensalada.png"
           }
         ]
       },
@@ -119,7 +136,8 @@
         "contenido": [
           {
             "icono": "toxicidad.png",
-            "texto": "Los inmunosupresores debilitan el\r\nsistema inmunol\u00F3gico, por lo que los\r\npacientes trasplantados son m\u00E1s susceptibles a infecciones. La automedicaci\u00F3n\r\npodr\u00EDa aumentar este riesgo debido a la\r\nalteraci\u00F3n de la efectividad de la medicaci\u00F3n, resistencia a antibi\u00F3ticos, etc."
+            "texto": "Los inmunosupresores debilitan el\r\nsistema inmunol\u00F3gico, por lo que los\r\npacientes trasplantados son m\u00E1s susceptibles a infecciones. La automedicaci\u00F3n\r\npodr\u00EDa aumentar este riesgo debido a la\r\nalteraci\u00F3n de la efectividad de la medicaci\u00F3n, resistencia a antibi\u00F3ticos, etc.",
+            "imagen": "ensalada.png"
           }
         ]
       }
