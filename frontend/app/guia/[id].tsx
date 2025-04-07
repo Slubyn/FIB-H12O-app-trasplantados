@@ -61,6 +61,24 @@ export default function GuiaDetalleScreen() {
       {/* Imagen de fondo con número y título */}
       {imageMap[tema.imagenFondo] && (
         <>
+          {/* Tabs de secciones */}
+          {tema.secciones.length > 1 && (
+            <ScrollView
+              horizontal
+              style={styles.tabs}
+              showsHorizontalScrollIndicator={false}
+            >
+              {tema.secciones.map((sec) => (
+                <TouchableOpacity
+                  key={sec.titulo}
+                  onPress={() => scrollToSection(sec.titulo)}
+                >
+                  <Text style={styles.tab}>{sec.titulo}</Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          )}
+
           <Image
             source={imageMap[tema.imagenFondo]}
             style={styles.headerImage}
@@ -71,24 +89,6 @@ export default function GuiaDetalleScreen() {
             <Text style={styles.headerTitulo}>{tema.titulo}</Text>
           </View>
         </>
-      )}
-
-      {/* Tabs de secciones */}
-      {tema.secciones.length > 1 && (
-        <ScrollView
-          horizontal
-          style={styles.tabs}
-          showsHorizontalScrollIndicator={false}
-        >
-          {tema.secciones.map((sec) => (
-            <TouchableOpacity
-              key={sec.titulo}
-              onPress={() => scrollToSection(sec.titulo)}
-            >
-              <Text style={styles.tab}>{sec.titulo}</Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
       )}
 
       {/* Contenido */}

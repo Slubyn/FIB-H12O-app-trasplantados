@@ -8,17 +8,16 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
   Dimensions,
-  FlatList
 } from "react-native";
 import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
-import { useRouter } from "expo-router"; // ✅ Necesario para navegar
+import { useRouter } from "expo-router";
 
 const screenWidth = Dimensions.get("window").width;
 const CARD_WIDTH = screenWidth * 0.7;
 
 const Dashboard: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const router = useRouter(); // ✅ Hook de navegación
+  const router = useRouter();
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const scrollX = event.nativeEvent.contentOffset.x;
@@ -63,7 +62,8 @@ const Dashboard: React.FC = () => {
             <Text style={styles.cardText}>{card.text}</Text>
           </TouchableOpacity>
         ))}
-        <View style={{ width: 40 }} /> {/* espacio final */}
+        {/* espacio final */}
+        <View style={{ width: 40 }} />
       </ScrollView>
 
       {/* Puntos de navegación */}
@@ -104,7 +104,6 @@ const Dashboard: React.FC = () => {
 
 export default Dashboard;
 
-//css
 const styles = StyleSheet.create({
   container: {
     padding: 20,
