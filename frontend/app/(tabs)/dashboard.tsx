@@ -1,84 +1,119 @@
-import React, { useState } from "react";
+import React, { useState, useRef  } from "react"; 
 import {
   View,
   Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  Dimensions,
-  SafeAreaView,
-  Platform,
-  StatusBar, 
+  StyleSheet, 
   FlatList,
+  TouchableOpacity, //efecto visual de click, hace elementos "presionables"
+  Dimensions, //devuelve el tamaño de la pantalla de algo
+  SafeAreaView, //para compatibilidad, evita que algunas cosas se evan ocultas
+  Platform, //para aplicar estilos o comportamiento especifico para cada plataforma
+  StatusBar, //para ajustar margenes o estilos
+  ScrollView, 
+  Animated,
 } from "react-native";
 import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
-const screenWidth = Dimensions.get("window").width;
-const CARD_WIDTH = screenWidth * 0.5;
+const ancho_pantalla = Dimensions.get("window").width;
+const ancho_tarjeta = ancho_pantalla * 0.5; // ocupará el % del total 
+
+const colores = {
+  fondo: "#FFF5E5",       // Crema claro
+  primario: "#FF8C5B",    // Naranja salmón
+  acento: "#F95F62",      // Rojo coral 
+  texto: "#4E342E",       // Marrón grisáceo
+  secundario: "#F5E1C2",  // Beige arena
+};
+
+const cards = [
+  { number: "01", text: "Inmunosupresión", id: "01" },
+  { number: "02", text: "Automedicación", id: "02" },
+  { number: "03", text: "Salud sexual", id: "03" },
+  { number: "04", text: "Alimentación", id: "04" },
+];
 
 const Dashboard: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const router = useRouter();
+  const scrollX = useRef(new Animated.Value(0)).current;
 
-  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+  const handleScroll = (event: any) => {
     const scrollX = event.nativeEvent.contentOffset.x;
-    const index = Math.round(scrollX / (CARD_WIDTH + 20));
+    const index = Math.round(scrollX / (ancho_tarjeta + 1));
     setActiveIndex(index);
   };
-
-  const cards = [
-    { number: "01", text: "Inmunosupresión", id: "01" },
-    { number: "02", text: "Automedicación", id: "02" },
-    { number: "03", text: "Salud sexual", id: "03" },
-    { number: "04", text: "Alimentación", id: "04" },
-  ];
 
   return (
     <SafeAreaView
       style={{
         flex: 1,
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-        backgroundColor: "#fff",
+        backgroundColor: colores.fondo,
       }}
     >
-            <ScrollView
+      <ScrollView
         contentContainerStyle={{
           padding: 20,
-          paddingBottom: Platform.OS === "ios" ? 10 : 40, // ← aquí se reduce el espacio inferior en iOS
-        }}>
-        <Text style={styles.title}>Hola, Alex</Text>
+          marginTop: 16,
+          paddingBottom: Platform.OS === "ios" ? 10 : 40,
+        }}
+      >
+        <Text style={styles.title}>Hola, Rebeca</Text>
         <Text style={styles.subtitle}>Guía de recomendaciones</Text>
 
-                {/* Carrusel con FlatList */}
-                <FlatList
+        {/* Carrusel */}
+        <Animated.FlatList
           data={cards}
           horizontal
           keyExtractor={(item) => item.id}
           showsHorizontalScrollIndicator={false}
-          snapToInterval={CARD_WIDTH + 20}
+          snapToInterval={ancho_tarjeta + 12} // 12 = separación entre tarjetas
           decelerationRate="fast"
-          contentContainerStyle={{ paddingLeft: 20, paddingRight: 20 }}
-          onMomentumScrollEnd={handleScroll}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.card}
-              onPress={() =>
-                router.push({
-                  pathname: "/guia/[id]",
-                  params: { id: item.id },
-                })
-              }
-            >
-              <Text style={styles.cardNumber}>{item.number}</Text>
-              <Text style={styles.cardText}>{item.text}</Text>
-            </TouchableOpacity>
+          contentContainerStyle={{ paddingLeft: 2, marginTop: 20 }}
+          ItemSeparatorComponent={() => <View style={{ width: 12 }} />} // separación entre tarjetas
+          onScroll={Animated.event(
+            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+            { useNativeDriver: true }
           )}
+          onMomentumScrollEnd={(event) => {
+            const index = Math.round(event.nativeEvent.contentOffset.x / (ancho_tarjeta + 12));
+            setActiveIndex(index);
+          }}
+          renderItem={({ item, index }) => {
+            const inputRange = [
+              (index - 1) * (ancho_tarjeta + 12),
+              index * (ancho_tarjeta + 12),
+              (index + 1) * (ancho_tarjeta + 12),
+            ];
+
+            const scale = scrollX.interpolate({
+              inputRange,
+              outputRange: [0.9, 1, 0.9],
+              extrapolate: "clamp",
+            });
+
+            return (
+              <Animated.View style={{ transform: [{ scale }] }}>
+                <TouchableOpacity
+                  style={styles.card} // no más marginRight aquí
+                  onPress={() =>
+                    router.push({
+                      pathname: "/guia/[id]",
+                      params: { id: item.id },
+                    })
+                  }
+                >
+                  <Text style={styles.cardNumber}>{item.number}</Text>
+                  <Text style={styles.cardText}>{item.text}</Text>
+                </TouchableOpacity>
+              </Animated.View>
+            );
+          }}
         />
 
-        {/* Puntos de navegación */}
+
+        {/* Dots */}
         <View style={styles.dotsContainer}>
           {cards.map((_, index) => (
             <View
@@ -88,30 +123,29 @@ const Dashboard: React.FC = () => {
           ))}
         </View>
 
-        {/* Sección de utilidades */}
         <Text style={styles.subtitle}>Utilidades</Text>
+        {/* Botones utilidades */}
+        <View style={{ gap: 15, marginTop: 20 }}>
+          <TouchableOpacity style={styles.button}>
+            <Ionicons name="medkit" size={24} color={colores.primario} />
+            <Text style={styles.buttonText}>Medicación</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button}>
-          <Ionicons name="medkit" size={24} color="black" />
-          <Text style={styles.buttonText}>Medicación</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <FontAwesome5 name="calendar-check" size={22} color={colores.primario} />
+            <Text style={styles.buttonText}>Próximas citas</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button}>
-          <FontAwesome5 name="calendar-check" size={24} color="black" />
-          <Text style={styles.buttonText}>Próximas citas</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <MaterialIcons name="favorite" size={24} color={colores.primario} />
+            <Text style={styles.buttonText}>Tensión arterial / glucosa</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button}>
-          <MaterialIcons name="favorite" size={24} color="black" />
-          <Text style={styles.buttonText}>
-            Tensión arterial / glucosa
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.button}>
-          <MaterialIcons name="vaccines" size={24} color="black" />
-          <Text style={styles.buttonText}>Campañas vacunación</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <MaterialIcons name="vaccines" size={24} color={colores.primario} />
+            <Text style={styles.buttonText}>Campañas vacunación</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -119,80 +153,118 @@ const Dashboard: React.FC = () => {
 
 export default Dashboard;
 
+//APARTADO CSS 
+
 const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    paddingTop: 60,
-    backgroundColor: "#fff",
-    flexGrow: 1,
-  },
   title: {
-    fontSize: 26,
+    fontSize: 28,
     fontWeight: "bold",
-    marginBottom: 10,
+    color: "#4E342E", // Marrón grisáceo
   },
   subtitle: {
-    marginTop: 30,
+    marginTop: 28,
     fontSize: 20,
     fontWeight: "600",
-  },
-  carousel: {
-    marginTop: 15,
-    flexDirection: "row",
+    color: "#4E342E",
   },
   card: {
-    width: CARD_WIDTH,
-    height: 130,
-    borderRadius: 12,
-    backgroundColor: "#e0e0e0",
-    marginRight: 20,
+    width: ancho_tarjeta,
+    height: 140,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 16,
     justifyContent: "center",
     alignItems: "center",
-    padding: 10,
+    padding: 12,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 4,
   },
+  
   cardNumber: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 5,
+    color: "#F95F62",
+    marginBottom: 6,
   },
   cardText: {
     fontSize: 16,
     textAlign: "center",
     fontWeight: "500",
+    color: "#4E342E",
   },
   dotsContainer: {
     flexDirection: "row",
-    marginVertical: 12,
     justifyContent: "center",
+    marginTop: 24,
+    marginBottom: 2,
   },
   dot: {
     width: 10,
     height: 10,
-    backgroundColor: "#ccc",
+    backgroundColor: "#F5E1C2",
     borderRadius: 5,
     margin: 5,
   },
   dotActive: {
     width: 10,
     height: 10,
-    backgroundColor: "#000",
+    backgroundColor: "#F95F62",
     borderRadius: 5,
     margin: 5,
   },
   button: {
     flexDirection: "row",
     alignItems: "center",
-    padding: 18,
-    backgroundColor: "#f0f0f0",
-    borderRadius: 12,
-    marginTop: 12,
+    backgroundColor: "#FFFFFF",
+    padding: 16,
+    borderRadius: 14,
+    elevation: 2,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 1 },
+    shadowRadius: 2,
   },
   buttonText: {
-    marginLeft: 15,
+    marginLeft: 14,
     fontSize: 16,
-    flex: 1,
-    flexWrap: "wrap",
-    flexShrink: 1,
-    textAlign: "left",
+    color: "#4E342E",
+    fontWeight: "500",
   },
 });
+
+
+//import { List } from "react-native-paper";
+/* Botones utilidades 
+
+<View style={{ marginTop: 10 }}>
+<List.Item
+  title="Medicación"
+  left={() => <Ionicons name="medkit" size={24} color={colores.primario} />}
+  onPress={() => {}}
+  titleStyle={{ color: colores.texto, fontWeight: "600" }}
+  style={styles.paperItem}
+/>
+<List.Item
+  title="Próximas citas"
+  left={() => <FontAwesome5 name="calendar-check" size={22} color={colores.primario} />}
+  onPress={() => {}}
+  titleStyle={{ color: colores.texto, fontWeight: "600" }}
+  style={styles.paperItem}
+/>
+<List.Item
+  title="Tensión arterial / glucosa"
+  left={() => <MaterialIcons name="favorite" size={24} color={colores.primario} />}
+  onPress={() => {}}
+  titleStyle={{ color: colores.texto, fontWeight: "600" }}
+  style={styles.paperItem}
+/>
+<List.Item
+  title="Campañas vacunación"
+  left={() => <MaterialIcons name="vaccines" size={24} color={colores.primario} />}
+  onPress={() => {}}
+  titleStyle={{ color: colores.texto, fontWeight: "600" }}
+  style={styles.paperItem}
+/>
+</View> */
