@@ -8,12 +8,16 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
   Dimensions,
+  SafeAreaView,
+  Platform,
+  StatusBar, 
+  FlatList,
 } from "react-native";
 import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
 const screenWidth = Dimensions.get("window").width;
-const CARD_WIDTH = screenWidth * 0.7;
+const CARD_WIDTH = screenWidth * 0.5;
 
 const Dashboard: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -33,72 +37,83 @@ const Dashboard: React.FC = () => {
   ];
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Hola, Rebeca</Text>
-      <Text style={styles.subtitle}>Guía de recomendaciones</Text>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+        backgroundColor: "#fff",
+      }}
+    >
+            <ScrollView
+        contentContainerStyle={{
+          padding: 20,
+          paddingBottom: Platform.OS === "ios" ? 10 : 40, // ← aquí se reduce el espacio inferior en iOS
+        }}>
+        <Text style={styles.title}>Hola, Alex</Text>
+        <Text style={styles.subtitle}>Guía de recomendaciones</Text>
 
-      {/* Carrusel de tarjetas */}
-      <ScrollView
-        horizontal
-        pagingEnabled
-        showsHorizontalScrollIndicator={false}
-        style={styles.carousel}
-        onMomentumScrollEnd={handleScroll}
-        scrollEventThrottle={16}
-        contentContainerStyle={{ paddingRight: 20 }}
-      >
-        {cards.map((card, index) => (
-          <TouchableOpacity
-            key={index}
-            style={styles.card}
-            onPress={() =>
-              router.push({
-                pathname: "/guia/[id]",
-                params: { id: card.id },
-              })
-            }
-          >
-            <Text style={styles.cardNumber}>{card.number}</Text>
-            <Text style={styles.cardText}>{card.text}</Text>
-          </TouchableOpacity>
-        ))}
-        {/* espacio final */}
-        <View style={{ width: 40 }} />
+                {/* Carrusel con FlatList */}
+                <FlatList
+          data={cards}
+          horizontal
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
+          snapToInterval={CARD_WIDTH + 20}
+          decelerationRate="fast"
+          contentContainerStyle={{ paddingLeft: 20, paddingRight: 20 }}
+          onMomentumScrollEnd={handleScroll}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.card}
+              onPress={() =>
+                router.push({
+                  pathname: "/guia/[id]",
+                  params: { id: item.id },
+                })
+              }
+            >
+              <Text style={styles.cardNumber}>{item.number}</Text>
+              <Text style={styles.cardText}>{item.text}</Text>
+            </TouchableOpacity>
+          )}
+        />
+
+        {/* Puntos de navegación */}
+        <View style={styles.dotsContainer}>
+          {cards.map((_, index) => (
+            <View
+              key={index}
+              style={index === activeIndex ? styles.dotActive : styles.dot}
+            />
+          ))}
+        </View>
+
+        {/* Sección de utilidades */}
+        <Text style={styles.subtitle}>Utilidades</Text>
+
+        <TouchableOpacity style={styles.button}>
+          <Ionicons name="medkit" size={24} color="black" />
+          <Text style={styles.buttonText}>Medicación</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button}>
+          <FontAwesome5 name="calendar-check" size={24} color="black" />
+          <Text style={styles.buttonText}>Próximas citas</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button}>
+          <MaterialIcons name="favorite" size={24} color="black" />
+          <Text style={styles.buttonText}>
+            Tensión arterial / glucosa
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button}>
+          <MaterialIcons name="vaccines" size={24} color="black" />
+          <Text style={styles.buttonText}>Campañas vacunación</Text>
+        </TouchableOpacity>
       </ScrollView>
-
-      {/* Puntos de navegación */}
-      <View style={styles.dotsContainer}>
-        {cards.map((_, index) => (
-          <View
-            key={index}
-            style={index === activeIndex ? styles.dotActive : styles.dot}
-          />
-        ))}
-      </View>
-
-      {/* Sección de utilidades */}
-      <Text style={styles.subtitle}>Utilidades</Text>
-
-      <TouchableOpacity style={styles.button}>
-        <Ionicons name="medkit" size={24} color="black" />
-        <Text style={styles.buttonText}>Medicación</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button}>
-        <FontAwesome5 name="calendar-check" size={24} color="black" />
-        <Text style={styles.buttonText}>Próximas citas</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button}>
-        <MaterialIcons name="favorite" size={24} color="black" />
-        <Text style={styles.buttonText}>Tensión arterial / glucosa</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button}>
-        <MaterialIcons name="vaccines" size={24} color="black" />
-        <Text style={styles.buttonText}>Campañas vacunación</Text>
-      </TouchableOpacity>
-    </ScrollView>
+    </SafeAreaView>
   );
 };
 
