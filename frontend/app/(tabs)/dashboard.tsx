@@ -1,29 +1,29 @@
-import React, { useState, useRef  } from "react"; 
+import React, { useState, useRef } from "react";
 import {
   View,
   Text,
-  StyleSheet, 
+  StyleSheet,
   FlatList,
   TouchableOpacity, //efecto visual de click, hace elementos "presionables"
   Dimensions, //devuelve el tamaño de la pantalla de algo
   SafeAreaView, //para compatibilidad, evita que algunas cosas se evan ocultas
   Platform, //para aplicar estilos o comportamiento especifico para cada plataforma
   StatusBar, //para ajustar margenes o estilos
-  ScrollView, 
+  ScrollView,
   Animated,
 } from "react-native";
 import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
 const ancho_pantalla = Dimensions.get("window").width;
-const ancho_tarjeta = ancho_pantalla * 0.5; // ocupará el % del total 
+const ancho_tarjeta = ancho_pantalla * 0.5; // ocupará el % del total
 
 const colores = {
-  fondo: "#FFF5E5",       // Crema claro
-  primario: "#FF8C5B",    // Naranja salmón
-  acento: "#F95F62",      // Rojo coral 
-  texto: "#4E342E",       // Marrón grisáceo
-  secundario: "#F5E1C2",  // Beige arena
+  fondo: "#FFF5E5", // Crema claro
+  primario: "#FF8C5B", // Naranja salmón
+  acento: "#F95F62", // Rojo coral
+  texto: "#4E342E", // Marrón grisáceo
+  secundario: "#F5E1C2", // Beige arena
 };
 
 const cards = [
@@ -31,6 +31,11 @@ const cards = [
   { number: "02", text: "Automedicación", id: "02" },
   { number: "03", text: "Salud sexual", id: "03" },
   { number: "04", text: "Alimentación", id: "04" },
+  { number: "05", text: "Higiene y estética", id: "05" },
+  { number: "06", text: "Exposición al sol", id: "06" },
+  { number: "07", text: "Alcohol y tabaco", id: "07" },
+  { number: "08", text: "Vacunas y viajes", id: "08" },
+  { number: "09", text: "Medidas preventivas", id: "09" },
 ];
 
 const Dashboard: React.FC = () => {
@@ -77,7 +82,9 @@ const Dashboard: React.FC = () => {
             { useNativeDriver: true }
           )}
           onMomentumScrollEnd={(event) => {
-            const index = Math.round(event.nativeEvent.contentOffset.x / (ancho_tarjeta + 12));
+            const index = Math.round(
+              event.nativeEvent.contentOffset.x / (ancho_tarjeta + 12)
+            );
             setActiveIndex(index);
           }}
           renderItem={({ item, index }) => {
@@ -112,7 +119,6 @@ const Dashboard: React.FC = () => {
           }}
         />
 
-
         {/* Dots */}
         <View style={styles.dotsContainer}>
           {cards.map((_, index) => (
@@ -132,7 +138,11 @@ const Dashboard: React.FC = () => {
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.button}>
-            <FontAwesome5 name="calendar-check" size={22} color={colores.primario} />
+            <FontAwesome5
+              name="calendar-check"
+              size={22}
+              color={colores.primario}
+            />
             <Text style={styles.buttonText}>Próximas citas</Text>
           </TouchableOpacity>
 
@@ -153,7 +163,7 @@ const Dashboard: React.FC = () => {
 
 export default Dashboard;
 
-//APARTADO CSS 
+//APARTADO CSS
 
 const styles = StyleSheet.create({
   title: {
@@ -181,7 +191,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 4,
   },
-  
+
   cardNumber: {
     fontSize: 20,
     fontWeight: "bold",
@@ -233,7 +243,6 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
 });
-
 
 //import { List } from "react-native-paper";
 /* Botones utilidades 

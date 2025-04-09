@@ -468,6 +468,491 @@
             "imagen": "ensalada.png"
           }
         ]
+      },
+      {
+        "id": "05",
+        "titulo": "Higiene personal, estética y tatuajes",
+        "imagenFondo": "nutricion-bg.jpg",
+        "secciones": [
+          {
+            "titulo": "Cuidados personales y estética",
+            "contenido": [
+              {
+                "icono": "toxicidad.png",
+                "texto": "Evite el contacto con adultos o niños que tengan enfermedades infecciosas activas y cuadros febriles. Recuerde seguir usando la mascarilla especialmente en lugares donde haya mucha gente y en entornos sanitarios.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Deberá mantener medidas de higiene personal: ducha diaria, secándose bien, sobre todo, los pliegues del cuerpo.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Los utensilios higiénicos no deben ser compartidos.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Lave la herida quirúrgica con agua y jabón, aclarando abundantemente para evitar restos jabonosos que puedan resultar irritantes y seque minuciosamente con una toalla limpia. No es necesaria la aplicación de ningún antiséptico, pero si lo desea puede utilizar clorhexidina o povidona yodada (betadine).",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Higiene de manos frecuente, con agua y jabón o gel hidroalcohólico.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Mantenga las uñas cortas y limpias.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Cepíllese los dientes y encías, después de todas las comidas, con un cepillo suave y pasta de dientes corriente. El recambio del cepillo de dientes no debe excederse a los 3 meses o si está en mal estado o deteriorado. Se recomienda revisión dental anual.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "No se recomiendan las técnicas de depilación que actúan sobre el bulbo piloso, salvo láser y luz pulsada, por el riesgo de infección de la piel o folículos. Son recomendables usar técnicas de depilación que actúen solo sobre el tallo piloso, como las maquinillas eléctricas, evitando cuchillas de afeitar tradicionales por el riesgo de cortes e infecciones.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Mantener la piel bien hidratada.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Evite manicuras/pedicuras en centros de estética que no garanticen seguridad en la atención.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "El paciente trasplantado requiere un control médico riguroso, por lo que es importante realizar las visitas programadas con diferentes especialistas (dermatólogo, oftalmólogo, podólogo, etc).",
+                "imagen": "ensalada.png"
+              }
+            ]
+          },
+          {
+            "titulo": "Lavado de manos",
+            "contenido": [
+              {
+                "icono": "lavado0.png",
+                "texto": "Mójese las manos con agua.",
+                "imagen": "lavado0.png"
+              },
+              {
+                "icono": "lavado1.png",
+                "texto": "Deposite en la palma de la mano una cantidad de jabón suficiente para cubrir todas las superficies de las manos.",
+                "imagen": "lavado1.png"
+              },
+              {
+                "icono": "lavado2.png",
+                "texto": "Frótese las palmas de las manos entre sí.",
+                "imagen": "lavado2.png"
+              },
+              {
+                "icono": "lavado3.png",
+                "texto": "Frótese la palma de la mano derecha contra el dorso de la mano izquierda entrelazando los dedos y viceversa.",
+                "imagen": "lavado3.png"
+              },
+              {
+                "icono": "lavado4.png",
+                "texto": "Frótese las palmas de las manos entre sí, con los dedos entrelazados.",
+                "imagen": "lavado4.png"
+              },
+              {
+                "icono": "lavado5.png",
+                "texto": "Frótese el dorso de los dedos de una mano con la palma de la mano opuesta, agarrándose los dedos.",
+                "imagen": "lavado5.png"
+              },
+              {
+                "icono": "lavado6.png",
+                "texto": "Frótese con un movimiento de rotación el pulgar izquierdo, atrapándolo con la palma de la mano derecha y viceversa.",
+                "imagen": "lavado6.png"
+              },
+              {
+                "icono": "lavado7.png",
+                "texto": "Frótese la punta de los dedos de la mano derecha, contra la palma de la mano izquierda, haciendo un movimiento de rotación y viceversa.",
+                "imagen": "lavado7.png"
+              },
+              {
+                "icono": "lavado8.png",
+                "texto": "Enjuáguese las manos con agua.",
+                "imagen": "lavado8.png"
+              },
+              {
+                "icono": "lavado9.png",
+                "texto": "Séquese con una toalla desechable.",
+                "imagen": "lavado9.png"
+              },
+              {
+                "icono": "lavado10.png",
+                "texto": "Sírvase de la toalla para cerrar el grifo.",
+                "imagen": "lavado10.png"
+              },
+              {
+                "icono": "lavado11.png",
+                "texto": "Sus manos son seguras.",
+                "imagen": "lavado11.png"
+              }
+            ]
+          },
+          {
+            "titulo": "Tatuajes",
+            "contenido": [
+              {
+                "icono": "toxicidad.png",
+                "texto": "Reacciones alérgicas: Las tintas de los tatuajes, especialmente las de color rojo, verde, amarillo y azul, pueden causar reacciones alérgicas en la piel, esto puede manifestarse como picazón en el sitio del tatuaje.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Mayor riesgo de infección: Las personas inmunodeprimidas tienen un mayor riesgo de infecciones, incluidas las infecciones cutáneas. Por lo tanto, deben ser conscientes de este riesgo al decidir hacerse un tatuaje. El proceso de tatuaje rompe la barrera de la piel, lo que aumenta el riesgo de infecciones.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Cicatrización enlentecida: Los pacientes inmunodeprimidos pueden experimentar una cicatrización más lenta después de hacerse un tatuaje. Esto se debe a la respuesta inmunitaria comprometida.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Enfermedades transmitidas por la sangre: Existe un riesgo de transmisión de enfermedades como hepatitis B y C, VIH, sífilis, etc. si los instrumentos no están esterilizados adecuadamente.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Complicaciones en resonancias magnéticas: Algunas tintas pueden interferir con las imágenes de resonancia magnética.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Especial riesgo en pacientes anticoagulados: En caso de tomar anticoagulantes, es recomendable evitar tatuarse debido al riesgo de sangrado excesivo.",
+                "imagen": "ensalada.png"
+              }
+            ]
+          },
+          {
+            "titulo": "Cuidado del tatuaje",
+            "contenido": [
+              {
+                "icono": "toxicidad.png",
+                "texto": "Mantenga limpia la piel tatuada: Limpie suavemente el área tatuada con agua y jabón, dos veces al día. Después del baño, evite que los chorros de agua golpeen directamente en la piel recién tatuada. Séquela con toquecitos suaves. No la frote.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Use crema humectante: Aplique un humectante suave sobre la piel tatuada varias veces al día.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Evite la exposición al sol: No exponga el área tatuada al sol hasta que cicatrice.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Natación: Evite el uso de piscinas, bañeras de hidromasajes, ríos, lagos y otras masas de agua mientras su tatuaje cicatriza.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Elija cuidadosamente la ropa: No use ropa ajustada que pueda adherirse al tatuaje.",
+                "imagen": "ensalada.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "06",
+        "titulo": "Exposición al sol",
+        "imagenFondo": "nutricion-bg.jpg",
+        "secciones": [
+          {
+            "titulo": "Riesgo de cáncer de piel",
+            "contenido": [
+              {
+                "icono": "toxicidad.png",
+                "texto": "La exposición solar es un factor de riesgo común para el cáncer de piel en la población general, pero en los pacientes trasplantados, este riesgo es aún mayor debido al tratamiento inmunosupresor.",
+                "imagen": "ensalada.png"
+              }
+            ]
+          },
+          {
+            "titulo": "Factor de Protección Solar (FPS)",
+            "contenido": [
+              {
+                "icono": "toxicidad.png",
+                "texto": "El Factor de Protección Solar (FPS o SPF) en los protectores solares funciona limitando la cantidad de radiación UV que alcanza su piel. Esto se logra a través de una combinación de ingredientes que absorben, reflejan o dispersan estos rayos. La cantidad de SPF en un protector solar proporciona una idea de cuánta radiación UV puede bloquear el producto.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Recuerde aplicar unos 2 mililitros de crema protectora por cada 2 centímetros cuadrados de piel para una protección efectiva.",
+                "imagen": "ensalada.png"
+              }
+            ]
+          },
+          {
+            "titulo": "Recomendaciones",
+            "contenido": [
+              {
+                "icono": "toxicidad.png",
+                "texto": "Evite el sol intenso: Entre las 12 y las 16 horas, cuando la radiación UV es más fuerte.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Protección solar: Use protector solar a diario incluso en las zonas menos expuestas independientemente de la estación del año.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Evite las cabinas de rayos UVA y limite el uso de camas solares.",
+                "imagen": "ensalada.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "07",
+        "titulo": "Consumo de alcohol y tabaquismo",
+        "imagenFondo": "nutricion-bg.jpg",
+        "secciones": [
+          {
+            "titulo": "Alcohol",
+            "contenido": [
+              {
+                "icono": "toxicidad.png",
+                "texto": "El alcohol puede interactuar con los medicamentos inmunosupresores y afectar su eficacia.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Función renal: El alcohol puede dañar los riñones. Aunque un trasplante renal mejora la función renal, beber puede ser perjudicial.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "El alcohol puede interactuar con otros medicamentos que esté tomando.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Hidratación: El alcohol puede deshidratarlo, lo que no es ideal para la salud renal. Beber agua es fundamental.",
+                "imagen": "ensalada.png"
+              }
+            ]
+          },
+          {
+            "titulo": "Tabaquismo",
+            "contenido": [
+              {
+                "icono": "toxicidad.png",
+                "texto": "El tabaquismo es la principal causa evitable de cáncer y está asociado con una serie de riesgos para la salud. El paciente con trasplante renal, debido a la inmunosupresión, tiene un riesgo aún mayor de padecer cáncer, por lo que es de vital importancia abandonar el hábito tabáquico.",
+                "imagen": "ensalada.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "08",
+        "titulo": "Vacunas recomendadas y viajes internacionales",
+        "imagenFondo": "nutricion-bg.jpg",
+        "secciones": [
+          {
+            "titulo": "Vacunas recomendadas",
+            "contenido": [
+              {
+                "icono": "toxicidad.png",
+                "texto": "Se recomienda que todos los pacientes con un trasplante renal funcionante, por su condición de inmunodeprimidos y el riesgo inherente de infecciones, reciban las siguientes vacunas: gripe, neumococo, vacunas contra la COVID-19, herpes zóster y hepatitis B.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Las vacunas vivas atenuadas están contraindicadas en pacientes inmunocomprometidos (POST TRASPLANTE) y desde las 4 semanas previas al TRASPLANTE: triple vírica (sarampión, rubeola y parotiditis), varicela, fiebre amarilla.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Las vacunas inactivadas (gripe, neumococo, etc.) sí pueden administrarse PRE y POST trasplante, aunque pueden ser menos eficaces.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "El Servicio de Medicina Preventiva informará de las vacunas que deberá recibir según el calendario vacunal, ya que las recomendaciones de vacunación se revisan anualmente en función de los avances científicos.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Tétanos/difteria: vacunación con una duración de 10 años.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Se deberían vacunar frente al virus de la hepatitis A, previa comprobación de que no tengan anticuerpos frente a dicho virus.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Se recomienda la valoración individualizada en una Unidad de Vacunación si se va a viajar a un país con riesgo de contagio.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Habitualmente se retoma la vacunación cuando han transcurrido 6 meses desde el trasplante, salvo que exista un riesgo alto de transmisión de enfermedades.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Es recomendable que se vacunen también los convivientes del paciente.",
+                "imagen": "ensalada.png"
+              }
+            ]
+          },
+          {
+            "titulo": "Viajes internacionales",
+            "contenido": [
+              {
+                "icono": "toxicidad.png",
+                "texto": "No olvide llevar medicación suficiente para todo el tiempo que dure el viaje (se recomienda duplicar la cantidad).",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "También deberá llevar una copia de los informes de ingreso y de la última revisión que se haya hecho, en los que conste un resumen de su historial y el tratamiento que toma.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Antes de salir, deberá tener localizado un hospital de referencia al que pueda acudir en caso de necesitarlo, y no olvide llevar anotado el número de teléfono de la unidad de trasplante renal.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "En viajes fuera de España, deberá obtener información acerca del sistema sanitario del país al que viaja. En algunos países será necesario llevar un informe, un justificante o receta, en el que el médico certifique el tratamiento inmunosupresor o la enfermedad crónica.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Si va a viajar a zonas en las que se recomiendan vacunas, siempre debe consultar con su nefrólogo o con la Unidad de Vacación al Viajero con tiempo suficiente (al menos 2 meses antes del viaje) para poder ser vacunado.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Beber agua embotellada, no usar la cloración casera, evitar cubitos de hielo, no comer alimentos crudos, evitar puestos ambulantes y alimentos en hoteles con almacenamiento o cocinado inadecuado.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Evite el contacto con aves, mercados, camellos, consumo de leche de camello o carne poco cocinada.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Evite las visitas a cuevas, minas, lugares en construcción, etc. y en caso de hacerlo, hágalo con medidas de protección (mascarilla).",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Para prevenir infecciones transmitidas por artrópodos (mosquitos, garrapatas, moscas), use repelente, ropa impregnada en repelente y telas mosquiteras.",
+                "imagen": "ensalada.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "09",
+        "titulo": "Otras medidas preventivas",
+        "imagenFondo": "nutricion-bg.jpg",
+        "secciones": [
+          {
+            "titulo": "Animales de compañía",
+            "contenido": [
+              {
+                "icono": "toxicidad.png",
+                "texto": "Evitar poseer mascotas, en especial durante el primer año posterior al trasplante.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Mantener a la mascota sana, con revisiones periódicas del veterinario y programa de vacunación al día.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Minimizar el contacto con animales enfermos.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Evite el contacto con reptiles como tortugas, iguanas, culebras y lagartos, pues conllevan riesgo de transmisión de Salmonella.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "El aseo del hábitat, acuarios, comederos y deposiciones, no debería estar a cargo de una persona trasplantada. En caso de manipulación es importante usar guantes y mascarilla.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Evite entrar en contacto con la saliva de los animales: alimentar animales, besar a los animales en la boca, lametazos, arañazos, etc.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "En caso de sufrir una agresión por parte de un animal (mordeduras o arañazos): lave la herida con agua y jabón durante 15 minutos y busque atención sanitaria de forma urgente.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Evite visitar granjas o estar en contacto con animales de granja o en su hábitat.",
+                "imagen": "ensalada.png"
+              }
+            ]
+          },
+          {
+            "titulo": "Jardinería",
+            "contenido": [
+              {
+                "icono": "toxicidad.png",
+                "texto": "Se evitará realizar trabajos de jardinería, ya que, al estar en contacto con tierra, plantas, flores y otros elementos naturales, estos pueden albergar microorganismos, como bacterias, hongos y parásitos, que podrían causar infecciones en personas con sistemas inmunológicos debilitados.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Si se realiza, se debe utilizar mascarilla FFP2 y guantes.",
+                "imagen": "ensalada.png"
+              }
+            ]
+          },
+          {
+            "titulo": "Ejercicio físico",
+            "contenido": [
+              {
+                "icono": "toxicidad.png",
+                "texto": "Generalmente será recomendable pasear a diario. Iremos incorporando el ejercicio físico de forma continua y moderada, adaptada a su edad y capacidad física.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Se recomienda al menos una caminata de 30 minutos al día si su condición física lo permite. Puede realizar otro tipo de ejercicio o deporte de mayor intensidad, consultando siempre con su médico si ha sido trasplantado del riñón.",
+                "imagen": "ensalada.png"
+              },
+              {
+                "icono": "toxicidad.png",
+                "texto": "Se aconseja que incremente su actividad paulatinamente, desaconsejándose los ejercicios que supongan esfuerzos extenuantes o puedan implicar traumatismos en la zona del injerto.",
+                "imagen": "ensalada.png"
+              }
+            ]
+          }
+        ]
       }
     ]
   }
