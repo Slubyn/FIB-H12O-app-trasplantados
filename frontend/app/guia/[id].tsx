@@ -30,15 +30,12 @@ export default function GuiaDetalleScreen() {
   }, [tema]);
 
   const handleSectionLayout = (titulo: string, e: LayoutChangeEvent) => {
-    const yPos = e.nativeEvent.layout.y;
-    sectionPositions.current[titulo] = yPos;
+    sectionPositions.current[titulo] = e.nativeEvent.layout.y;
   };
 
   const scrollToSection = (titulo: string) => {
     const y = sectionPositions.current[titulo] || 0;
-    if (scrollRef.current) {
-      scrollRef.current.scrollTo({ x: 0, y, animated: true });
-    }
+    scrollRef.current?.scrollTo({ y, animated: true });
   };
 
   if (!tema) {
@@ -50,7 +47,12 @@ export default function GuiaDetalleScreen() {
   }
 
   return (
-    <ScrollView ref={scrollRef} style={styles.container}>
+    <ScrollView
+      ref={scrollRef}
+      style={styles.container}
+      contentContainerStyle={styles.contentContainer}
+    >
+      {/* Cabecera visual */}
       <View style={styles.headerContainer}>
         {imageMap[tema.imagenFondo] && (
           <Image
@@ -65,32 +67,33 @@ export default function GuiaDetalleScreen() {
         </View>
       </View>
 
+      {/* Tabs ahora en layout normal, no superpuestos */}
       {tema.secciones.length > 1 && (
-        <View style={styles.tabsContainer}>
-          <ScrollView
-            horizontal
-            contentContainerStyle={styles.tabsContent}
-            showsHorizontalScrollIndicator={false}
-          >
-            {tema.secciones.map((sec) => (
-              <TouchableOpacity
-                key={sec.titulo}
-                onPress={() => scrollToSection(sec.titulo)}
-                style={styles.tabButton}
+        <ScrollView
+          horizontal
+          style={styles.tabs}
+          contentContainerStyle={styles.tabsContent}
+          showsHorizontalScrollIndicator={false}
+        >
+          {tema.secciones.map((sec) => (
+            <TouchableOpacity
+              key={sec.titulo}
+              onPress={() => scrollToSection(sec.titulo)}
+              style={styles.tabButton}
+            >
+              <Text
+                style={styles.tabText}
+                numberOfLines={1}
+                ellipsizeMode="tail"
               >
-                <Text
-                  style={styles.tabText}
-                  numberOfLines={1}
-                  ellipsizeMode="tail"
-                >
-                  {sec.titulo}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </ScrollView>
-        </View>
+                {sec.titulo}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
       )}
 
+      {/* Contenido */}
       {tema.secciones.map((sec) => (
         <View
           key={sec.titulo}
@@ -98,8 +101,6 @@ export default function GuiaDetalleScreen() {
           style={styles.section}
         >
           <Text style={styles.sectionTitle}>{sec.titulo}</Text>
-
-          {/* Contenido normal (texto con icono e imagen) */}
           {sec.contenido?.map((item, i) => (
             <View key={i} style={styles.card}>
               {iconMap[item.icono] && (
@@ -114,31 +115,19 @@ export default function GuiaDetalleScreen() {
               )}
             </View>
           ))}
-
-          {/* Tabla de "No coma / Elija esto" */}
-          {sec.contenidoTabla?.map((fila, i) => (
-            <View key={i} style={styles.tableRow}>
-              <View style={styles.tableCellLeft}>
-                <Text style={styles.tableTitle}>No coma</Text>
-                <Text style={styles.tableText}>{fila.no_coma}</Text>
-              </View>
-              <View style={styles.tableCellRight}>
-                <Text style={styles.tableTitle}>Elija esto</Text>
-                <Text style={styles.tableText}>{fila.elija_esto}</Text>
-              </View>
-            </View>
-          ))}
         </View>
       ))}
     </ScrollView>
   );
 }
 
-/* ---------- ESTILOS ---------- */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  contentContainer: {
+    paddingBottom: 80,
   },
   noTemaContainer: {
     flex: 1,
@@ -146,7 +135,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  // ---------- CABECERA ----------
+  // Cabecera
   headerContainer: {
     width: "100%",
     height: 220,
@@ -155,10 +144,10 @@ const styles = StyleSheet.create({
   },
   headerImage: {
     position: "absolute",
-    top: 0,
-    left: 0,
     width: "100%",
     height: "100%",
+    top: 0,
+    left: 0,
   },
   headerOverlay: {
     flex: 1,
@@ -177,11 +166,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "600",
     color: "#444",
-    marginTop: 4,
   },
 
-  // ---------- TABS DEBAJO ----------
-  tabsContainer: {
+  // Tabs (no absolute)
+  tabs: {
     paddingHorizontal: 10,
     paddingVertical: 5,
     marginBottom: 10,
@@ -205,7 +193,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
 
-  // ---------- SECCIONES ----------
+  // Secciones
   section: {
     marginBottom: 25,
     paddingHorizontal: 16,
@@ -215,8 +203,6 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     marginBottom: 12,
   },
-
-  // ---------- CONTENIDO DE SECCION ----------
   card: {
     flexDirection: "row",
     alignItems: "flex-start",
@@ -239,36 +225,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginLeft: 10,
   },
-
-  // ---------- TABLA ----------
-  tableRow: {
-    flexDirection: "row",
-    backgroundColor: "#f9f9f9",
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 12,
-    gap: 10,
-  },
-  tableCellLeft: {
-    flex: 1,
-    paddingRight: 5,
-  },
-  tableCellRight: {
-    flex: 1,
-    paddingLeft: 5,
-  },
-  tableTitle: {
-    fontWeight: "bold",
-    marginBottom: 4,
-    color: "#333",
-  },
-  tableText: {
-    fontSize: 14,
-    lineHeight: 20,
-    color: "#444",
-  },
-
-  // ---------- TÍTULO SI NO EXISTE TEMA ----------
   title: {
     fontSize: 20,
     fontWeight: "bold",
