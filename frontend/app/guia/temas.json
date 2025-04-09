@@ -9,7 +9,7 @@
         "contenido": [
           {
             "icono": "pildora.png",
-            "texto": "La inmunosupresi\u00F3n es la terapia clave\r\nen el trasplante. En algunos casos se\r\ninicia antes del trasplante y se ajusta\r\nde manera individualizada, una vez el\r\npaciente ha recibido el \u00F3rgano. Sin el\r\ntratamiento inmunosupresor, el sistema\r\ninmunitario responde agresivamente contra un trasplante, del mismo modo que lo\r\nhace contra las infecciones. Esta respuesta, que es conocida como rechazo, puede\r\nocasionar la p\u00E9rdida del \u00F3rgano, por eso\r\nes muy importante que el tratamiento\r\nse tome diariamente. Deber\u00E1 tomar esta\r\nmedicaci\u00F3n de por vida",
+            "texto": "La inmunosupresión es la terapia clave en el trasplante. En algunos casos se inicia antes del trasplante y se ajusta de manera individualizada, una vez el paciente ha recibido el órgano. Sin el tratamiento inmunosupresor, el sistema inmunitario responde agresivamente contra un trasplante, del mismo modo que lo hace contra las infecciones. Esta respuesta, que es conocida como rechazo, puede ocasionar la pérdida del órgano, por eso es muy importante que el tratamiento se tome diariamente. Deberá tomar esta medicación de por vida.",
             "imagen": "javaImagen.png"
           }
         ]
@@ -137,6 +137,334 @@
           {
             "icono": "toxicidad.png",
             "texto": "Los inmunosupresores debilitan el\r\nsistema inmunol\u00F3gico, por lo que los\r\npacientes trasplantados son m\u00E1s susceptibles a infecciones. La automedicaci\u00F3n\r\npodr\u00EDa aumentar este riesgo debido a la\r\nalteraci\u00F3n de la efectividad de la medicaci\u00F3n, resistencia a antibi\u00F3ticos, etc.",
+            "imagen": "ensalada.png"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "03",
+    "titulo": "Prevencion de infecciones: salud sexual y reproductiva",
+    "imagenFondo": "nutricion-bg.jpg",
+    "secciones": [
+      {
+        "titulo": "Benificios",
+        "contenido": [
+          {
+            "icono": "medicamento-roto.png",
+            "texto": "Prevenci\u00F3n de infecciones de transmisi\u00F3n sexual (ITS). Evite mantener\r\nrelaciones sexuales con personas de\r\nlas que desconoce su salud sexual.\r\nLimite el n\u00FAmero de parejas sexuales.\r\nUse m\u00E9todos de protecci\u00F3n de barrera, como el preservativo o cond\u00F3n,\r\npara evitar el contacto con fluidos\r\n(semen, sangre, fluidos vaginales\u2026).\r\nAlgunas ITS pueden no causar\r\ns\u00EDntomas, por lo que es recomendable utilizar protecci\u00F3n en todas las\r\nrelaciones sexuales (vaginales, anales\r\nu orales) siempre.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "medicamento-roto.png",
+            "texto": "Prevenci\u00F3n de embarazos no\r\ndeseados: Son eficaces para evitar\r\nembarazos no planeados, con una\r\nefectividad del 95% al 98%. ",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "medicamento-roto.png",
+            "texto": "Accesibilidad y costo: Son f\u00E1ciles de\r\nconseguir, higi\u00E9nicos y asequibles.\r\nPuede llevarlos en cualquier bolso o bolsillo y usarlos solo en el momento\r\nde la relaci\u00F3n sexual. En casos de\r\nalergia al l\u00E1tex, existen alternativas sin\r\nl\u00E1tex disponibles.",
+            "imagen": "ensalada.png"
+          }
+        ]
+      },
+      {
+        "titulo": "Embarazo",
+        "contenido": [
+          {
+            "icono": "medicamento-roto.png",
+            "texto": "El embarazo en mujeres con trasplante renal es posible, pero requiere de un seguimiento especial por lo que deberá consultar previamente su intención con su nefrólogo para:",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "medicamento-roto.png",
+            "texto": "El embarazo es exitoso si la función renal se mantiene estable y no surgen complicaciones.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "medicamento-roto.png",
+            "texto": "Las más comunes son la hipertensión y la preeclampsia.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "medicamento-roto.png",
+            "texto": "La prematuridad es la complicación más frecuente en los recién nacidos.",
+            "imagen": "ensalada.png"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "04",
+    "titulo": "Seguridad alimentaria y nutricón",
+    "imagenFondo": "nutricion-bg.jpg",
+    "secciones": [
+      {
+        "titulo": "Alimentos a evitar",
+        "contenido": [
+          {
+            "icono": "toxicidad.png",
+            "texto": "Para evitar contraer una enfermedad transmitida por los alimentos, debe estar especialmente atento al manipular, preparar y consumir alimentos.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "• Debe evitar el consumo de agua no controlada, en nuestro medio, es seguro consumir agua procedente de la red de abastecimiento público, pero debe evitarse la cloración casera.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "• Los envases de comida hinchados pueden ser un signo de alerta de que el alimento está en mal estado o contaminado. Esto ocurre porque microorganismos presentes en los alimentos metabolizan los nutrientes y producen gases, como el dióxido de carbono, que se acumulan en el interior del envase y lo presionan, provocando que se abulte o infle.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "• No coma hongos silvestres.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "• Tome una dieta saludable, variada y equilibrada pobre en sal. El consumo excesivo de sodio (sal) en la dieta, causa retención de líquidos. Ese exceso de líquidos provoca un aumento de las cifras de tensión arterial.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "• Haga su dieta atractiva, adáptela en la medida de lo posible a sus gustos culinarios, pero intente evitar los siguientes alimentos, por su elevado contenido en sodio: sal de cocina, embutidos, patés, mariscos, moluscos, aceitunas y otros encurtidos, conservas, bebidas con gas, caldos preparados, etc.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "• El pomelo y el zumo de pomelo aumentan las concentraciones mínimas en sangre de tacrolimus, lo que incrementa el riesgo de reacciones adversas graves, como neurotoxicidad, por lo que su consumo está totalmente desaconsejado.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "• Se recomienda tomar una dieta rica en legumbres, frutas y verduras, salvo que su médico le haya restringido el consumo de potasio.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "• Evite el colesterol y los ácidos grasos saturados (grasas animales) y cámbielos por los ácidos grasos poliinsaturados, sobre todo omega 3 (que aparecen en los aceites vegetales como en el de oliva y en el pescado).",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "• Reduzca el consumo de bebidas estimulantes, como el café, té y refrescos de cola.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "• Suprima el consumo de alcohol",
+            "imagen": "ensalada.png"
+          }
+        ]
+      },
+      {
+        "titulo": "No coma / Elija estos en su lugar",
+        "contenidoTabla": [
+          {
+            "no_coma": "Quesos blandos no pasteurizados, como queso fresco y brie.",
+            "elija_esto": "Quesos duros, como cheddar y parmesano."
+          },
+          {
+            "no_coma": "Quesos sin calentar rebanados en la sección de comida preparada.",
+            "elija_esto": "Quesos cottage, queso crema, queso en tiras, feta y mozzarella."
+          },
+          {
+            "no_coma": "Quesos blandos pasteurizados sin calentar.",
+            "elija_esto": "Quesos blandos pasteurizados calentados a una temperatura interna de 74 °C o hasta que estén humeantes."
+          },
+          {
+            "no_coma": "Carnes de la sección de comida preparada sin calentar, cortes fríos (fiambres), hot dogs (perros calientes) y salchichas secas o fermentadas.",
+            "elija_esto": "Carnes de la sección de comida preparada recalentadas a 74 °C o hasta que estén humeantes."
+          },
+          {
+            "no_coma": "Ensaladas de la sección de comida preparada, como ensalada de repollo, de patata, de atún o de pollo.",
+            "elija_esto": "Ensaladas caseras preparadas en la sección de comida preparada."
+          },
+          {
+            "no_coma": "Paté o pasta de carnes para untar refrigerados.",
+            "elija_esto": "Paté o pasta de carnes para untar en recipientes sellados y herméticos que no necesitan nevera antes de abrirse."
+          },
+          {
+            "no_coma": "Pescado ahumado refrigerado.",
+            "elija_esto": "Pescado ahumado en paquetes o recipientes sellados y herméticos que no necesitan nevera antes de abrirse, o pescado ahumado cocinado en guisados u otros platos cocidos."
+          },
+          {
+            "no_coma": "Germinados crudos o ligeramente cocidos.",
+            "elija_esto": "Germinados cocidos hasta que estén humeantes."
+          },
+          {
+            "no_coma": "Fruta cortada que se dejó fuera por más de 2 horas.",
+            "elija_esto": "Fruta recién cortada."
+          },
+          {
+            "no_coma": "Fruta cortada que se dejó en la nevera por más de una semana.",
+            "elija_esto": "Fruta recién cortada."
+          },
+          {
+            "no_coma": "Leche cruda, yogurt y helado sin pasteurizar.",
+            "elija_esto": "Leche cruda, yogurt y helado pasteurizados."
+          }
+        ]
+      },
+      {
+        "titulo": "Macronutrientes",
+        "contenido": [
+          {
+            "icono": "toxicidad.png",
+            "texto": "AZÚCARES: aunque usted nunca haya tenido diabetes, las medicinas contra el rechazo usadas como inmunosupresoras pueden causar diabetes. Si usted ya tenía diabetes antes del trasplante, el control de la glucosa en su sangre podría ser más difícil.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "GRASAS: se recomienda evitar los productos que los contienen en exceso (fritos, embutidos, más de 2 huevos semanales, frutos secos, chocolates, grasas animales). Sin embargo, se recomiendan alimentos como el pescado azul, el aceite de oliva, la carne de pollo, entre otros.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "CONSUMA LÁCTEOS PASTEURIZADOS: Evite los yogures con bacterias vivas y quesos no pasteurizados. Los zumos deben estar pasteurizados también.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "CARNES Y EMBUTIDOS: Asegúrese de cocinar bien las carnes y embutidos antes de consumirlos. Evite los embutidos envasados al vacío y las carnes crudas poco cocinadas.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "PESCADOS Y MARISCOS: Cocine adecuadamente los pescados y mariscos. Evite los mariscos crudos o poco cocinados, especialmente los de concha.",
+            "imagen": "ensalada.png"
+          }
+        ]
+      },
+      {
+        "titulo": "Evitar la contaminación cruzada",
+        "contenido": [
+          {
+            "icono": "toxicidad.png",
+            "texto": "Lávese las manos con agua y jabón.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "Limpie las encimeras, las tablas de cortar, los cuchillos y los utensilios antes de exponerlos a diferentes alimentos.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "Cuando descongele alimentos, hágalo dentro de la nevera. No los descongele a temperatura ambiente. Guarde los alimentos crudos en recipientes cerrados y en la parte inferior de la nevera para evitar que goteen sobre otros alimentos.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "Mantenga separados los alimentos crudos de los cocinados. No ponga las carnes crudas y cocidas en el mismo plato.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "Cocine los alimentos a temperaturas adecuadas para matar bacterias. Puede usar un termómetro de cocina. Asegúrese de que la carne de res (vacunos, venados, ovejas, jabalíes) esté preparada mínimo a 72 °C, el pollo y otras aves de corral al menos a 83 °C y el pescado mínimo a 60 °C.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "Refrigere los restos de comida si no se van a consumir dentro de las siguientes 4 horas y no guarde los alimentos a ser posible más de tres días.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "En alimentos que estén congelados o refrigerados se debe comprobar que las vitrinas expositoras de estos alimentos no están demasiado cargadas, y que la temperatura sea la adecuada para mantener los alimentos en buen estado. En el caso de los alimentos congelados se recomienda entre los -12 y -18 grados y su embalaje tiene que encontrarse en perfecto estado, sin presentar escarcha. En el caso de los alimentos refrigerados, entre los 4 y 6 grados.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "Los alimentos no perecederos se conservarán en un lugar fresco y seco para garantizar su seguridad, en ambientes ventilados y, sobre todo, no deben de estar cerca de los productos de limpieza o almacenarse con estos bajo ningún concepto.",
+            "imagen": "ensalada.png"
+          }
+        ]
+      },
+      {
+        "titulo": "Uso seguro de lejía alimentaria",
+        "contenido": [
+          {
+            "icono": "toxicidad.png",
+            "texto": "Comprar lejía apta para alimentos: Asegúrese de que la etiqueta indique que es adecuada para uso alimentario.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "Dosis adecuada: Mezclar una cucharada de postre (4,5 ml) de lejía con 3 litros de agua. Sumergir los alimentos en esta solución durante 5 minutos para una desinfección básica o hasta 15 minutos para una limpieza más exhaustiva.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "No mezcle con otras sustancias: Nunca combine la lejía con otros productos químicos, ya que podría ser tóxico.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "Limpieza incluso sin piel: Aunque se vayan a comer sin piel, desinfecte las frutas y vegetales, ya que el cuchillo podría transferir patógenos al interior.",
+            "imagen": "ensalada.png"
+          }
+        ]
+      },
+      {
+        "titulo": "Consumo seguro de huevos",
+        "contenido": [
+          {
+            "icono": "toxicidad.png",
+            "texto": "Es muy importante atender al estado de los huevos. Deben consumirse cocinados, evitando los huevos crudos, pasados por agua o fritos. La cáscara de huevo puede contener bacterias, por eso deben separarse del resto de alimentos en la nevera. Es aconsejable evitar las mayonesas y salsas caseras, eligiendo consumir las fórmulas comerciales. De utilizar huevos para hacerlas, estos deben ser frescos. Como máximo pueden estar a 8 grados hasta su consumo, deben guardarse en el frigorífico hasta su consumo, no deben dejarse a temperatura ambiente, y después de 24 horas, de no ser consumidas habrá que descartarlas.",
+            "imagen": "ensalada.png"
+          }
+        ]
+      },
+      {
+        "titulo": "Cómo comprobar si los huevos están en buen estado",
+        "contenido": [
+          {
+            "icono": "toxicidad.png",
+            "texto": "Inspeccionar la cáscara: Antes de romper el huevo, verificaremos si hay irregularidades en la cáscara.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "Comprobar la fecha de caducidad y el código impreso: Asegúrese de que el huevo no haya superado su fecha de consumo recomendada. Inspección olfativa del huevo tras romperlo: Si detecta olores anormales, es mejor desecharlo.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "Mantener los huevos refrigerados siempre.",
+            "imagen": "ensalada.png"
+          }
+        ]
+      },
+      {
+        "titulo": "Estrategias culinarias aconsejadas",
+        "contenido": [
+          {
+            "icono": "toxicidad.png",
+            "texto": "El método más adecuado de preparar los alimentos es el cocinado sin sal añadida.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "En cuanto a la preparación de los alimentos, se aconseja elegir métodos como la cocción, al vapor, a la plancha, asados, guisados o estofados. Evitar frituras y rebozados.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "Se aconseja no disponer saleros en la mesa para evitar la tentación de añadir más sal a los alimentos.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "Puede utilizar potenciadores naturales de sabor como, por ejemplo: vinagre, limón, ajo, cebolla, cebolletas, puerros, especias o hierbas aromáticas.",
+            "imagen": "ensalada.png"
+          },
+          {
+            "icono": "toxicidad.png",
+            "texto": "Se puede reducir el sodio de los alimentos si utilizamos técnicas de remojo prolongado (más de 10 horas) o doble cocción, cambiando el agua a mitad de la misma ya que el sodio se disuelve y queda en el agua. El empleo de esta técnica es útil en verduras, legumbres y pescados congelados y en conservas.",
             "imagen": "ensalada.png"
           }
         ]
