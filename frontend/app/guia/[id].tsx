@@ -120,14 +120,13 @@ export default function GuiaDetalleScreen() {
     </ScrollView>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#FFF5E5", // fondo crema como dashboard
   },
   contentContainer: {
-    paddingBottom: 80,
+    paddingBottom: 100,
   },
   noTemaContainer: {
     flex: 1,
@@ -140,7 +139,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 220,
     position: "relative",
-    marginBottom: 10,
+    marginBottom: 16,
   },
   headerImage: {
     position: "absolute",
@@ -148,27 +147,31 @@ const styles = StyleSheet.create({
     height: "100%",
     top: 0,
     left: 0,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   headerOverlay: {
     flex: 1,
-    paddingTop: 40,
+    paddingTop: 50,
     paddingHorizontal: 20,
     paddingBottom: 10,
-    backgroundColor: "rgba(255,255,255,0.8)",
+    backgroundColor: "rgba(255,255,255,0.7)", //el 0. es la opacidad
     justifyContent: "flex-end",
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   headerNumero: {
     fontSize: 36,
     fontWeight: "bold",
-    color: "#222",
+    color: "#F95F62",
   },
   headerTitulo: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "600",
-    color: "#444",
+    color: "#4E342E",
   },
 
-  // Tabs (no absolute)
+  // Tabs
   tabs: {
     paddingHorizontal: 10,
     paddingVertical: 5,
@@ -179,56 +182,66 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   tabButton: {
-    minWidth: 80,
+    minWidth: 100,
     marginRight: 12,
     paddingVertical: 6,
-    paddingHorizontal: 10,
-    backgroundColor: "#eee",
-    borderRadius: 10,
+    paddingHorizontal: 14,
+    backgroundColor: "#F5E1C2",
+    borderRadius: 14,
   },
   tabText: {
     fontSize: 14,
-    flexShrink: 1,
-    maxWidth: 180,
-    overflow: "hidden",
+    fontWeight: "600",
+    color: "#4E342E",
   },
 
   // Secciones
   section: {
-    marginBottom: 25,
-    paddingHorizontal: 16,
+    marginBottom: 30,
+    paddingHorizontal: 20,
   },
   sectionTitle: {
-    fontSize: 16,
-    fontWeight: "600",
-    marginBottom: 12,
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 14,
+    color: "#4E342E",
   },
   card: {
     flexDirection: "row",
     alignItems: "flex-start",
+    backgroundColor: "#FFFFFF",
+    borderRadius: 16,
+    padding: 14,
     marginBottom: 14,
-    gap: 10,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 1 },
+    shadowRadius: 3,
+    elevation: 2,
+    gap: 12,
   },
   icon: {
     width: 40,
     height: 40,
-    marginTop: 5,
+    marginTop: 4,
   },
   text: {
     flex: 1,
     fontSize: 16,
     lineHeight: 22,
+    color: "#4E342E",
   },
   imageRight: {
     width: 60,
     height: 60,
-    borderRadius: 10,
-    marginLeft: 10,
+    borderRadius: 12,
+    marginLeft: 8,
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
     marginTop: 20,
+    color: "#F95F62",
   },
 });

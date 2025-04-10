@@ -3,14 +3,13 @@ import {
   View,
   Text,
   StyleSheet,
-  FlatList,
   TouchableOpacity, //efecto visual de click, hace elementos "presionables"
   Dimensions, //devuelve el tamaño de la pantalla de algo
   SafeAreaView, //para compatibilidad, evita que algunas cosas se evan ocultas
   Platform, //para aplicar estilos o comportamiento especifico para cada plataforma
   StatusBar, //para ajustar margenes o estilos
   ScrollView,
-  Animated,
+  Animated, //animated flatlist
 } from "react-native";
 import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -75,7 +74,7 @@ const Dashboard: React.FC = () => {
           showsHorizontalScrollIndicator={false}
           snapToInterval={ancho_tarjeta + 12} // 12 = separación entre tarjetas
           decelerationRate="fast"
-          contentContainerStyle={{ paddingLeft: 2, marginTop: 20 }}
+          contentContainerStyle={{ paddingLeft: 2, paddingTop:10, paddingBottom:10,  marginTop: 20 }}
           ItemSeparatorComponent={() => <View style={{ width: 12 }} />} // separación entre tarjetas
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { x: scrollX } } }],
