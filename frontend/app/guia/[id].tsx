@@ -7,6 +7,9 @@ import {
   TouchableOpacity,
   Image,
   LayoutChangeEvent,
+  SafeAreaView,
+  Platform,
+  StatusBar,
 } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { useNavigation } from "@react-navigation/native";
@@ -29,101 +32,132 @@ export default function GuiaDetalleScreen() {
     }
   }, [tema]);
 
+  // Igual que en test.tsx
+  const headerOffset = 60;
+
   const handleSectionLayout = (titulo: string, e: LayoutChangeEvent) => {
     sectionPositions.current[titulo] = e.nativeEvent.layout.y;
   };
 
   const scrollToSection = (titulo: string) => {
-    const y = sectionPositions.current[titulo] || 0;
+    const y = (sectionPositions.current[titulo] || 0) - headerOffset;
     scrollRef.current?.scrollTo({ y, animated: true });
   };
 
   if (!tema) {
     return (
       <View style={styles.noTemaContainer}>
-        <Text style={styles.title}>Tema no encontrado</Text>
+        <Text style={styles.text}>Tema no encontrado</Text>
       </View>
     );
   }
 
   return (
-    <ScrollView
-      ref={scrollRef}
-      style={styles.container}
-      contentContainerStyle={styles.contentContainer}
-    >
-      {/* Cabecera visual */}
-      <View style={styles.headerContainer}>
-        {imageMap[tema.imagenFondo] && (
-          <Image
-            source={imageMap[tema.imagenFondo]}
-            style={styles.headerImage}
-            resizeMode="cover"
-          />
-        )}
-        <View style={styles.headerOverlay}>
-          <Text style={styles.headerNumero}>{tema.id}</Text>
-          <Text style={styles.headerTitulo}>{tema.titulo}</Text>
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView
+        ref={scrollRef}
+        style={styles.scrollView}
+        contentContainerStyle={styles.contentContainer}
+      >
+        {/* Header con altura fija para evitar recalculos en Android */}
+        <View style={styles.headerContainer}>
+          {/* Imagen de fondo absoluta */}
+          {imageMap[tema.imagenFondo] && (
+            <Image
+              source={imageMap[tema.imagenFondo]}
+              style={styles.headerImage}
+              resizeMode="cover"
+            />
+          )}
+          {/* Overlay de texto por encima de la imagen */}
+          <View style={styles.overlay}>
+            <Text style={styles.headerNumero}>{tema.id}</Text>
+            <Text style={styles.headerTitulo}>{tema.titulo}</Text>
+          </View>
         </View>
-      </View>
 
-      {/* Tabs ahora en layout normal, no superpuestos */}
-      {tema.secciones.length > 1 && (
-        <ScrollView
-          horizontal
-          style={styles.tabs}
-          contentContainerStyle={styles.tabsContent}
-          showsHorizontalScrollIndicator={false}
-        >
-          {tema.secciones.map((sec) => (
-            <TouchableOpacity
-              key={sec.titulo}
-              onPress={() => scrollToSection(sec.titulo)}
-              style={styles.tabButton}
-            >
-              <Text
-                style={styles.tabText}
-                numberOfLines={1}
-                ellipsizeMode="tail"
+        {/* Tabs */}
+        {tema.secciones.length > 1 && (
+          <ScrollView
+            horizontal
+            style={styles.tabs}
+            contentContainerStyle={styles.tabsContent}
+            showsHorizontalScrollIndicator={false}
+          >
+            {tema.secciones.map((sec) => (
+              <TouchableOpacity
+                key={sec.titulo}
+                onPress={() => scrollToSection(sec.titulo)}
+                style={styles.tabButton}
               >
-                {sec.titulo}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-      )}
+                <Text
+                  style={styles.tabText}
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                >
+                  {sec.titulo}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        )}
 
-      {/* Contenido */}
-      {tema.secciones.map((sec) => (
-        <View
-          key={sec.titulo}
-          onLayout={(e) => handleSectionLayout(sec.titulo, e)}
-          style={styles.section}
-        >
-          <Text style={styles.sectionTitle}>{sec.titulo}</Text>
-          {sec.contenido?.map((item, i) => (
-            <View key={i} style={styles.card}>
-              {iconMap[item.icono] && (
-                <Image source={iconMap[item.icono]} style={styles.icon} />
-              )}
-              <Text style={styles.text}>{item.texto}</Text>
-              {item.imagen && imageMap[item.imagen] && (
-                <Image
-                  source={imageMap[item.imagen]}
-                  style={styles.imageRight}
-                />
-              )}
-            </View>
-          ))}
-        </View>
-      ))}
-    </ScrollView>
+        {/* Secciones */}
+        {tema.secciones.map((sec) => (
+          <View
+            key={sec.titulo}
+            onLayout={(e) => handleSectionLayout(sec.titulo, e)}
+            style={styles.section}
+          >
+            <Text style={styles.sectionTitle}>{sec.titulo}</Text>
+            {sec.contenido?.map((item, i) => (
+              <View key={i} style={styles.card}>
+                {/* {iconMap[item.icono] && (
+                  <Image source={iconMap[item.icono]} style={styles.icon} />
+                )} */}
+                <Text style={styles.text}>{item.texto}</Text>
+                {/* {item.imagen && imageMap[item.imagen] && (
+                  <Image
+                    source={imageMap[item.imagen]}
+                    style={styles.imageRight}
+                  />
+                )} */}
+              </View>
+            ))}
+
+            {/* contenidoTabla si lo hubiese */}
+            {sec.contenidoTabla?.map((fila, idx) => (
+              <View key={idx} style={styles.card}>
+                <Text style={styles.text}>
+                  <Text style={{ fontWeight: "600" }}>No coma:</Text>{" "}
+                  {fila.no_coma}
+                </Text>
+                <Text style={styles.text}>
+                  <Text style={{ fontWeight: "600" }}>Elija esto:</Text>{" "}
+                  {fila.elija_esto}
+                </Text>
+              </View>
+            ))}
+          </View>
+        ))}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
+
 const styles = StyleSheet.create({
-  container: {
+  headerOverlay: {
+    backgroundColor: "#F5E1C2",
+    borderRadius: 12,
+    padding: 16,
+  },
+  safeArea: {
     flex: 1,
-    backgroundColor: "#FFF5E5", // fondo crema como dashboard
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    backgroundColor: "#FFF5E5",
+  },
+  scrollView: {
+    flex: 1,
   },
   contentContainer: {
     paddingBottom: 100,
@@ -134,31 +168,28 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  // Cabecera
   headerContainer: {
+    // Fija la altura (igual a test.tsx usa 120, aquí usamos 220 para la imagen)
+    height: 200,
     width: "100%",
-    height: 220,
-    position: "relative",
     marginBottom: 16,
+    position: "relative",
+    overflow: "hidden", // para redondear esquinas
+    justifyContent: "center",
+    alignItems: "center",
   },
   headerImage: {
     position: "absolute",
-    width: "100%",
-    height: "100%",
     top: 0,
     left: 0,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    width: "100%",
+    height: 220, // coincide con la altura del contenedor
   },
-  headerOverlay: {
+  overlay: {
     flex: 1,
-    paddingTop: 50,
-    paddingHorizontal: 20,
-    paddingBottom: 10,
-    backgroundColor: "rgba(255,255,255,0.7)", //el 0. es la opacidad
-    justifyContent: "flex-end",
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(255,255,255,0.3)", // overlay semitransparente
   },
   headerNumero: {
     fontSize: 36,
@@ -166,7 +197,7 @@ const styles = StyleSheet.create({
     color: "#F95F62",
   },
   headerTitulo: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "600",
     color: "#4E342E",
   },
@@ -236,12 +267,5 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 12,
     marginLeft: 8,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginTop: 20,
-    color: "#F95F62",
   },
 });

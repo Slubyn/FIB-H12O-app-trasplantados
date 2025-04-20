@@ -74,7 +74,12 @@ const Dashboard: React.FC = () => {
           showsHorizontalScrollIndicator={false}
           snapToInterval={ancho_tarjeta + 12} // 12 = separación entre tarjetas
           decelerationRate="fast"
-          contentContainerStyle={{ paddingLeft: 2, paddingTop:10, paddingBottom:10,  marginTop: 20 }}
+          contentContainerStyle={{
+            paddingLeft: 2,
+            paddingTop: 10,
+            paddingBottom: 10,
+            marginTop: 20,
+          }}
           ItemSeparatorComponent={() => <View style={{ width: 12 }} />} // separación entre tarjetas
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { x: scrollX } } }],
@@ -105,7 +110,7 @@ const Dashboard: React.FC = () => {
                   style={styles.card} // no más marginRight aquí
                   onPress={() =>
                     router.push({
-                      pathname: "/guia/[id]",
+                      pathname: "/test",
                       params: { id: item.id },
                     })
                   }
