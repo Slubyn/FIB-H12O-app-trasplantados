@@ -13,6 +13,8 @@ import {
 } from "react-native";
 import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import { BotonUtilidades } from "@/components/BotonUtilidades";
+
 
 const ancho_pantalla = Dimensions.get("window").width;
 const ancho_tarjeta = ancho_pantalla * 0.5; // ocupará el % del total
@@ -131,29 +133,29 @@ const Dashboard: React.FC = () => {
         <Text style={styles.subtitle}>Utilidades</Text>
         {/* Botones utilidades */}
         <View style={{ gap: 15, marginTop: 20 }}>
-          <TouchableOpacity style={styles.button}>
-            <Ionicons name="medkit" size={24} color={colores.primario} />
-            <Text style={styles.buttonText}>Medicación</Text>
-          </TouchableOpacity>
+          < BotonUtilidades
+            title="Medicación"
+            icon={<Ionicons name="medkit" size={24} color={colores.primario} />}
+            onPress={() => {}}
+          />
 
-          <TouchableOpacity style={styles.button}>
-            <FontAwesome5
-              name="calendar-check"
-              size={22}
-              color={colores.primario}
-            />
-            <Text style={styles.buttonText}>Próximas citas</Text>
-          </TouchableOpacity>
+          <BotonUtilidades
+            title="Próximas citas"
+            icon={<FontAwesome5 name="calendar-check" size={22} color={colores.primario} />}
+            onPress={() => {}}
+          />
 
-          <TouchableOpacity style={styles.button}>
-            <MaterialIcons name="favorite" size={24} color={colores.primario} />
-            <Text style={styles.buttonText}>Tensión arterial / glucosa</Text>
-          </TouchableOpacity>
+          <BotonUtilidades
+            title="Tensión arterial / glucosa"
+            icon={<MaterialIcons name="favorite" size={24} color={colores.primario} />}
+            onPress={() => {}}
+          />
 
-          <TouchableOpacity style={styles.button}>
-            <MaterialIcons name="vaccines" size={24} color={colores.primario} />
-            <Text style={styles.buttonText}>Campañas vacunación</Text>
-          </TouchableOpacity>
+          <BotonUtilidades
+            title="Campañas vacunación"
+            icon={<MaterialIcons name="vaccines" size={24} color={colores.primario} />}
+            onPress={() => {}}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -223,7 +225,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 5,
   },
-  button: {
+  /*button: {
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#FFFFFF",
@@ -240,7 +242,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#4E342E",
     fontWeight: "500",
-  },
+  },*/
 });
 
 //import { List } from "react-native-paper";
