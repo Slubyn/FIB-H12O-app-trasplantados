@@ -1,21 +1,23 @@
 import React, { useRef, useEffect } from "react";
 import {
   View,
+  Image,
   Text,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  Image,
   LayoutChangeEvent,
+  SafeAreaView,
+  Platform,
+  StatusBar,
 } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { useNavigation } from "@react-navigation/native";
-
-import temas from "@/app/guia/temas.json";
 import { iconMap } from "@/constants/iconMap";
 import { imageMap } from "@/constants/imageMap";
+import temas from "@/constants/temas.json";
 
-export default function GuiaDetalleScreen() {
+export default function TestTabsSinImagenes() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const scrollRef = useRef<ScrollView>(null);
   const sectionPositions = useRef<Record<string, number>>({});
@@ -25,16 +27,18 @@ export default function GuiaDetalleScreen() {
 
   useEffect(() => {
     if (tema) {
-      navigation.setOptions({ title: tema.titulo });
+      navigation.setOptions({ title: String(tema.titulo ?? "") });
     }
   }, [tema]);
+
+  const headerOffset = 60;
 
   const handleSectionLayout = (titulo: string, e: LayoutChangeEvent) => {
     sectionPositions.current[titulo] = e.nativeEvent.layout.y;
   };
 
   const scrollToSection = (titulo: string) => {
-    const y = sectionPositions.current[titulo] || 0;
+    const y = (sectionPositions.current[titulo] || 0) - headerOffset;
     scrollRef.current?.scrollTo({ y, animated: true });
   };
 
@@ -47,83 +51,99 @@ export default function GuiaDetalleScreen() {
   }
 
   return (
-    <ScrollView
-      ref={scrollRef}
-      style={styles.container}
-      contentContainerStyle={styles.contentContainer}
-    >
-      {/* Cabecera visual */}
-      <View style={styles.headerContainer}>
-        {imageMap[tema.imagenFondo] && (
-          <Image
-            source={imageMap[tema.imagenFondo]}
-            style={styles.headerImage}
-            resizeMode="cover"
-          />
-        )}
-        <View style={styles.headerOverlay}>
-          <Text style={styles.headerNumero}>{tema.id}</Text>
-          <Text style={styles.headerTitulo}>{tema.titulo}</Text>
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView
+        ref={scrollRef}
+        style={styles.scrollView}
+        contentContainerStyle={styles.contentContainer}
+      >
+        <View style={styles.headerContainer}>
+          {imageMap[tema.imagenFondo] && (
+            <Image
+              source={imageMap[tema.imagenFondo]}
+              style={styles.headerImage}
+              resizeMode="cover"
+            />
+          )}
+          <View style={styles.headerOverlay}>
+            <Text style={styles.headerNumero}>{String(tema.id ?? "")}</Text>
+            <Text style={styles.headerTitulo}>{String(tema.titulo ?? "")}</Text>
+          </View>
         </View>
-      </View>
 
-      {/* Tabs ahora en layout normal, no superpuestos */}
-      {tema.secciones.length > 1 && (
-        <ScrollView
-          horizontal
-          style={styles.tabs}
-          contentContainerStyle={styles.tabsContent}
-          showsHorizontalScrollIndicator={false}
-        >
-          {tema.secciones.map((sec) => (
-            <TouchableOpacity
-              key={sec.titulo}
-              onPress={() => scrollToSection(sec.titulo)}
-              style={styles.tabButton}
-            >
-              <Text
-                style={styles.tabText}
-                numberOfLines={1}
-                ellipsizeMode="tail"
+        {tema.secciones.length > 1 && (
+          <ScrollView
+            horizontal
+            style={styles.tabs}
+            contentContainerStyle={styles.tabsContent}
+            showsHorizontalScrollIndicator={false}
+          >
+            {tema.secciones.map((sec) => (
+              <TouchableOpacity
+                key={sec.titulo}
+                onPress={() => scrollToSection(sec.titulo)}
+                style={styles.tabButton}
               >
-                {sec.titulo}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-      )}
+                <Text
+                  style={styles.tabText}
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                >
+                  {String(sec.titulo ?? "")}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        )}
 
-      {/* Contenido */}
-      {tema.secciones.map((sec) => (
-        <View
-          key={sec.titulo}
-          onLayout={(e) => handleSectionLayout(sec.titulo, e)}
-          style={styles.section}
-        >
-          <Text style={styles.sectionTitle}>{sec.titulo}</Text>
-          {sec.contenido?.map((item, i) => (
-            <View key={i} style={styles.card}>
-              {iconMap[item.icono] && (
-                <Image source={iconMap[item.icono]} style={styles.icon} />
-              )}
-              <Text style={styles.text}>{item.texto}</Text>
-              {item.imagen && imageMap[item.imagen] && (
-                <Image
-                  source={imageMap[item.imagen]}
-                  style={styles.imageRight}
-                />
-              )}
-            </View>
-          ))}
-        </View>
-      ))}
-    </ScrollView>
+        {tema.secciones.map((sec) => (
+          <View
+            key={sec.titulo}
+            onLayout={(e) => handleSectionLayout(sec.titulo, e)}
+            style={styles.section}
+          >
+            <Text style={styles.sectionTitle}>{String(sec.titulo ?? "")}</Text>
+            {sec.contenido?.map((item, i) => (
+              <View key={i} style={styles.card}>
+                {iconMap[item.icono] && (
+                  <Image source={iconMap[item.icono]} style={styles.icon} />
+                )}
+                <Text style={styles.text}>{String(item.texto ?? "")}</Text>
+                {item.imagen && imageMap[item.imagen] && (
+                  <Image
+                    source={imageMap[item.imagen]}
+                    style={styles.imageRight}
+                  />
+                )}
+              </View>
+            ))}
+            {sec.contenidoTabla?.map((fila, idx) => (
+              <View key={idx} style={styles.card}>
+                <Text style={styles.text}>
+                  <Text style={{ fontWeight: "600" }}>No coma:</Text>{" "}
+                  {String(fila.no_coma ?? "")}
+                </Text>
+                <Text style={styles.text}>
+                  <Text style={{ fontWeight: "600" }}>Elija esto:</Text>{" "}
+                  {String(fila.elija_esto ?? "")}
+                </Text>
+              </View>
+            ))}
+          </View>
+        ))}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
+
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     flex: 1,
-    backgroundColor: "#FFF5E5", // fondo crema como dashboard
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    backgroundColor: "#FFF5E5",
+  },
+  scrollView: {
+    flex: 1,
   },
   contentContainer: {
     paddingBottom: 100,
@@ -133,32 +153,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
-  // Cabecera
+  overlay: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(255,255,255,0.3)",
+  },
   headerContainer: {
     width: "100%",
-    height: 220,
+    overflow: "hidden",
+    height: 200,
     position: "relative",
     marginBottom: 16,
-  },
-  headerImage: {
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-    top: 0,
-    left: 0,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
   },
   headerOverlay: {
-    flex: 1,
-    paddingTop: 50,
-    paddingHorizontal: 20,
-    paddingBottom: 10,
-    backgroundColor: "rgba(255,255,255,0.7)", //el 0. es la opacidad
-    justifyContent: "flex-end",
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(255,255,255,0.3)",
   },
   headerNumero: {
     fontSize: 36,
@@ -166,12 +179,10 @@ const styles = StyleSheet.create({
     color: "#F95F62",
   },
   headerTitulo: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "600",
     color: "#4E342E",
   },
-
-  // Tabs
   tabs: {
     paddingHorizontal: 10,
     paddingVertical: 5,
@@ -194,14 +205,12 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#4E342E",
   },
-
-  // Secciones
   section: {
     marginBottom: 30,
     paddingHorizontal: 20,
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
     marginBottom: 14,
     color: "#4E342E",
@@ -220,22 +229,11 @@ const styles = StyleSheet.create({
     elevation: 2,
     gap: 12,
   },
-  icon: {
-    width: 40,
-    height: 40,
-    marginTop: 4,
-  },
   text: {
     flex: 1,
     fontSize: 16,
     lineHeight: 22,
     color: "#4E342E",
-  },
-  imageRight: {
-    width: 60,
-    height: 60,
-    borderRadius: 12,
-    marginLeft: 8,
   },
   title: {
     fontSize: 20,
@@ -243,5 +241,24 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
     color: "#F95F62",
+  },
+  icon: {
+    width: 40,
+    height: 40,
+    marginTop: 4,
+  },
+  headerImage: {
+    borderRadius: 30,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: 300,
+  },
+  imageRight: {
+    width: 60,
+    height: 60,
+    borderRadius: 12,
+    marginLeft: 8,
   },
 });

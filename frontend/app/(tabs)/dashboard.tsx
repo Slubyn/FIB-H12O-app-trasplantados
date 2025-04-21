@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   View,
   Text,
@@ -10,6 +10,7 @@ import {
   StatusBar, //para ajustar margenes o estilos
   ScrollView,
   Animated, //animated flatlist
+  Alert, //alertas
 } from "react-native";
 import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -76,7 +77,12 @@ const Dashboard: React.FC = () => {
           showsHorizontalScrollIndicator={false}
           snapToInterval={ancho_tarjeta + 12} // 12 = separación entre tarjetas
           decelerationRate="fast"
-          contentContainerStyle={{ paddingLeft: 2, paddingTop:10, paddingBottom:10,  marginTop: 20 }}
+          contentContainerStyle={{
+            paddingLeft: 2,
+            paddingTop: 10,
+            paddingBottom: 10,
+            marginTop: 20,
+          }}
           ItemSeparatorComponent={() => <View style={{ width: 12 }} />} // separación entre tarjetas
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { x: scrollX } } }],
