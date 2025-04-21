@@ -18,6 +18,7 @@ export default function TabLayout() {
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+
           headerShown: false,
           tabBarButton: HapticTab,
           tabBarBackground: TabBarBackground,
@@ -33,6 +34,7 @@ export default function TabLayout() {
           name="index"
           options={{
             title: "Home",
+
             tabBarIcon: ({ color }) => (
               <IconSymbol size={28} name="house.fill" color={color} />
             ),
@@ -42,6 +44,7 @@ export default function TabLayout() {
           name="explore"
           options={{
             title: "Explore",
+
             tabBarIcon: ({ color }) => (
               <IconSymbol size={28} name="paperplane.fill" color={color} />
             ),
@@ -51,6 +54,7 @@ export default function TabLayout() {
           name="dashboard"
           options={{
             title: "Dashboard",
+
             tabBarIcon: ({ color }) => (
               <IconSymbol size={28} name="square.grid.2x2.fill" color={color} />
             ),
