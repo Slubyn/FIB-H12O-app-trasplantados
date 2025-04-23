@@ -1,7 +1,6 @@
 import * as Notifications from "expo-notifications";
 import popups from "@/constants/popups.json";
 
-// Extrae una notificación aleatoria del JSON
 type PopupCategories = keyof typeof popups;
 const categorias = Object.keys(popups) as PopupCategories[];
 
@@ -10,16 +9,15 @@ const getRandomPopup = () => {
     categorias[Math.floor(Math.random() * categorias.length)];
   const mensajes = popups[categoriaRandom];
   const mensajeRandom = mensajes[Math.floor(Math.random() * mensajes.length)];
-
   return {
     categoria: categoriaRandom,
     mensaje: mensajeRandom,
   };
 };
 
-// Programa una notificación local para después de X segundos
-export const scheduleRandomPopupNotification = async (
-  delayInSeconds: number
+// ✅ PROGRAMAR UNA NOTIFICACIÓN RECURRENTE CADA X SEGUNDOS (default: 3600s = 1h)
+export const scheduleRepeatingPopupNotification = async (
+  intervalInSeconds: number
 ) => {
   const { categoria, mensaje } = getRandomPopup();
 
@@ -30,8 +28,9 @@ export const scheduleRandomPopupNotification = async (
       sound: true,
     },
     trigger: {
-      seconds: Math.max(delayInSeconds, 60), // mínimo 60s para Android
-      channelId: "default", // necesario en Android
+      seconds: intervalInSeconds,
+      repeats: true, // ✅ Esto la hace recurrente
+      channelId: "default",
     },
   });
 };

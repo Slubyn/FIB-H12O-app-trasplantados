@@ -15,7 +15,9 @@ import {
 import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { BotonUtilidades } from "@/components/BotonUtilidades";
-
+import * as Notifications from "expo-notifications";
+import { TimeIntervalNotificationTrigger } from "expo-notifications";
+// import { scheduleRepeatingPopupNotification } from "@/constants/notifications";
 
 const ancho_pantalla = Dimensions.get("window").width;
 const ancho_tarjeta = ancho_pantalla * 0.5; // ocupará el % del total
@@ -44,6 +46,10 @@ const Dashboard: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const router = useRouter();
   const scrollX = useRef(new Animated.Value(0)).current;
+
+  // useEffect(() => {
+  //   scheduleRepeatingPopupNotification(61); // lanza una notificación en 5 segundos al entrar
+  // }, []);
 
   const handleScroll = (event: any) => {
     const scrollX = event.nativeEvent.contentOffset.x;
@@ -139,7 +145,7 @@ const Dashboard: React.FC = () => {
         <Text style={styles.subtitle}>Utilidades</Text>
         {/* Botones utilidades */}
         <View style={{ gap: 15, marginTop: 20 }}>
-          < BotonUtilidades
+          <BotonUtilidades
             title="Medicación"
             icon={<Ionicons name="medkit" size={24} color={colores.primario} />}
             onPress={() => {}}
@@ -147,20 +153,59 @@ const Dashboard: React.FC = () => {
 
           <BotonUtilidades
             title="Próximas citas"
-            icon={<FontAwesome5 name="calendar-check" size={22} color={colores.primario} />}
+            icon={
+              <FontAwesome5
+                name="calendar-check"
+                size={22}
+                color={colores.primario}
+              />
+            }
             onPress={() => {}}
           />
 
           <BotonUtilidades
             title="Tensión arterial / glucosa"
-            icon={<MaterialIcons name="favorite" size={24} color={colores.primario} />}
+            icon={
+              <MaterialIcons
+                name="favorite"
+                size={24}
+                color={colores.primario}
+              />
+            }
             onPress={() => {}}
           />
 
           <BotonUtilidades
             title="Campañas vacunación"
-            icon={<MaterialIcons name="vaccines" size={24} color={colores.primario} />}
+            icon={
+              <MaterialIcons
+                name="vaccines"
+                size={24}
+                color={colores.primario}
+              />
+            }
             onPress={() => {}}
+          />
+
+          <BotonUtilidades
+            title="Probar notificación en 60s"
+            icon={<MaterialIcons name="alarm" size={24} color="#FF8C5B" />}
+            onPress={async () => {
+              await Notifications.scheduleNotificationAsync({
+                content: {
+                  title: "⏰ Notificación",
+                  body: "Esta aparecerá en 60 segundos",
+                  sound: true,
+                },
+                trigger: {
+                  type: "timeInterval" as any, // 👈 forzamos compatibilidad
+                  seconds: 60,
+                  repeats: false,
+                },
+              });
+
+              console.log("✅ Notificación programada para 60s");
+            }}
           />
         </View>
       </ScrollView>

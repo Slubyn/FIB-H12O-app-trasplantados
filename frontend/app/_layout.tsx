@@ -14,10 +14,19 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 
 import * as Notifications from "expo-notifications";
 import * as Device from "expo-device";
-import { scheduleRandomPopupNotification } from "@/constants/notifications";
+import { scheduleRepeatingPopupNotification } from "@/constants/notifications";
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
+// Evita que se oculte el splash screen antes de tiempo
 SplashScreen.preventAutoHideAsync();
+
+// ✅ Manejador para mostrar notificaciones mientras la app está abierta
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: false,
+  }),
+});
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -30,8 +39,10 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
+
   useEffect(() => {
     const setupNotifications = async () => {
+      console.log("⏰ Configurando notificaciones...");
       if (Device.isDevice) {
         const { status: existingStatus } =
           await Notifications.getPermissionsAsync();
@@ -47,26 +58,23 @@ export default function RootLayout() {
           return;
         }
 
-        // Solo Android: canal de notificaciones
+        // 🔊 Canal de Android
         await Notifications.setNotificationChannelAsync("default", {
           name: "default",
           importance: Notifications.AndroidImportance.HIGH,
           sound: "default",
         });
+
+        // 💣 Limpia notificaciones anteriores y programa la nueva recurrente
         await Notifications.cancelAllScheduledNotificationsAsync();
-
-        // Programa varias notificaciones (una cada hora como ejemplo)
-
-        await scheduleRandomPopupNotification(10);
+        await scheduleRepeatingPopupNotification(120); // Cada hora
       }
     };
 
     setupNotifications();
   }, []);
 
-  if (!loaded) {
-    return null;
-  }
+  if (!loaded) return null;
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
