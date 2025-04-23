@@ -14,8 +14,9 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 
 import * as Notifications from "expo-notifications";
 import * as Device from "expo-device";
-import { scheduleRepeatingPopupNotification } from "@/constants/notifications";
+import { scheduleMultiplePopupNotifications } from "@/constants/notifications";
 
+import { useRouter } from "expo-router";
 // Evita que se oculte el splash screen antes de tiempo
 SplashScreen.preventAutoHideAsync();
 
@@ -29,17 +30,17 @@ Notifications.setNotificationHandler({
 });
 
 export default function RootLayout() {
+  const router = useRouter();
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
+    if (loaded) SplashScreen.hideAsync();
   }, [loaded]);
 
+  // ✅ CONFIGURAR NOTIFICACIONES
   useEffect(() => {
     const setupNotifications = async () => {
       console.log("⏰ Configurando notificaciones...");
@@ -58,20 +59,34 @@ export default function RootLayout() {
           return;
         }
 
-        // 🔊 Canal de Android
+        // Canal para Android
         await Notifications.setNotificationChannelAsync("default", {
           name: "default",
           importance: Notifications.AndroidImportance.HIGH,
           sound: "default",
         });
 
-        // 💣 Limpia notificaciones anteriores y programa la nueva recurrente
         await Notifications.cancelAllScheduledNotificationsAsync();
-        await scheduleRepeatingPopupNotification();
+        await scheduleMultiplePopupNotifications();
       }
     };
 
     setupNotifications();
+  }, []);
+
+  // ✅ ESCUCHAR CLICK EN NOTIFICACIÓN
+  useEffect(() => {
+    const subscription = Notifications.addNotificationResponseReceivedListener(
+      (response) => {
+        const temaId = response.notification.request.content.data.temaId;
+        if (temaId) {
+          console.log("🔁 Redirigiendo a /guia/" + temaId);
+          router.push(`/guia/${temaId}`);
+        }
+      }
+    );
+
+    return () => subscription.remove(); // Limpieza
   }, []);
 
   if (!loaded) return null;
