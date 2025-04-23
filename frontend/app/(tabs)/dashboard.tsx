@@ -187,7 +187,7 @@ const Dashboard: React.FC = () => {
             onPress={() => {}}
           />
 
-          <BotonUtilidades
+          {/* <BotonUtilidades
             title="Probar notificación en 60s"
             icon={<MaterialIcons name="alarm" size={24} color="#FF8C5B" />}
             onPress={async () => {
@@ -206,7 +206,7 @@ const Dashboard: React.FC = () => {
 
               console.log("✅ Notificación programada para 60s");
             }}
-          />
+          /> */}
         </View>
       </ScrollView>
     </SafeAreaView>

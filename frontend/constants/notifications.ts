@@ -16,9 +16,7 @@ const getRandomPopup = () => {
 };
 
 // ✅ PROGRAMAR UNA NOTIFICACIÓN RECURRENTE CADA X SEGUNDOS (default: 3600s = 1h)
-export const scheduleRepeatingPopupNotification = async (
-  intervalInSeconds: number
-) => {
+export const scheduleRepeatingPopupNotification = async () => {
   const { categoria, mensaje } = getRandomPopup();
 
   await Notifications.scheduleNotificationAsync({
@@ -28,7 +26,8 @@ export const scheduleRepeatingPopupNotification = async (
       sound: true,
     },
     trigger: {
-      seconds: intervalInSeconds,
+      type: "timeInterval" as any,
+      seconds: 60,
       repeats: true, // ✅ Esto la hace recurrente
       channelId: "default",
     },

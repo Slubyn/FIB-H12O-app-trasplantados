@@ -67,7 +67,7 @@ export default function RootLayout() {
 
         // 💣 Limpia notificaciones anteriores y programa la nueva recurrente
         await Notifications.cancelAllScheduledNotificationsAsync();
-        await scheduleRepeatingPopupNotification(120); // Cada hora
+        await scheduleRepeatingPopupNotification();
       }
     };
 
