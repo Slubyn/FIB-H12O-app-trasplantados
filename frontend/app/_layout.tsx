@@ -96,6 +96,21 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
+        <Stack.Screen
+          name="guia/[id]"
+          options={{ headerShown: false }}
+          // options={{
+          //   headerStyle: {
+          //     backgroundColor: "#FFF5E5", // Fondo crema claro
+          //   },
+          //   headerTintColor: "#4E342E", // Color del texto y la flecha
+          //   headerTitleStyle: {
+          //     fontWeight: "bold",
+          //     fontSize: 18,
+          //   },
+          //   title: "", // Para quitar el título
+          // }}
+        />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
