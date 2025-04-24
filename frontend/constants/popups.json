@@ -1,71 +1,54 @@
 {
-  "Inmunosupresión y Medicación": [
+  "Inmunosupresión y adherencia": [
     "💊 Toma tu medicación a la hora exacta, sin cambios. ¡Es vital para tu trasplante!",
     "⚠️ ¿Olvidaste una dosis o tuviste vómitos? Contacta con tu médico cuanto antes.",
     "🚫 No mezcles medicamentos ni suplementos sin consultar al médico."
-  ],
-  "Higiene y Prevención de Infecciones": [
-    "🖐️ Lava tus manos con frecuencia. Es la mejor defensa contra infecciones.",
-    "🐍 Evita el contacto con reptiles y animales enfermos.",
-    "🛏️ Si tienes fiebre, dificultad para respirar o náuseas, avisa a tu médico."
   ],
   "Salud Sexual y Reproductiva": [
     "🛡️ Usa siempre protección. El riesgo de infecciones es mayor.",
     "👶 ¿Pensando en quedarte embarazada? Habla con tu nefrólogo antes."
   ],
-  "Exposición al Sol": [
-    "☀️ Aplica protector solar todos los días, incluso si está nublado.",
-    "🕑 Evita el sol entre las 12:00 y las 16:00.",
-    "🚫 No uses cabinas de bronceado ni camas solares."
-  ],
-  "Viajes": [
-    "💼 Lleva el doble de medicación si vas a viajar.",
-    "🏥 Localiza un hospital cerca de tu destino antes de viajar.",
-    "🧴 Desinfecta frutas y verduras fuera de casa."
-  ],
-  "Alimentación Segura": [
+  "Seguridad Alimentaria y nutricion": [
     "❌ No comas carnes crudas ni alimentos de dudosa procedencia.",
     "🚰 Toma solo agua embotellada. Evita el hielo.",
-    "🍋 Evita el pomelo. Puede alterar tu medicación."
-  ],
-  "Dieta y Hábitos Saludables": [
-    "🍳 Cocina los alimentos completamente. Evita fritos y ultraprocesados.",
-    "🧂 Reduce la sal. Usa ajo, limón o especias para dar sabor.",
-    "🐟 Prefiere grasas buenas como las del pescado azul y el aceite de oliva."
-  ],
-  "Mascotas y Jardinería": [
-    "🐾 Evita mascotas durante el primer año post-trasplante.",
-    "🧤 Si haces jardinería, usa mascarilla FFP2 y guantes."
-  ],
-  "Tatuajes y Estética": [
-    "🧴 ¿Te vas a tatuar? Consulta primero con tu médico.",
-    "🚿 Limpia el tatuaje a diario y evita el sol hasta que cicatrice.",
-    "👕 No uses ropa ajustada sobre un tatuaje reciente."
-  ],
-  "Síntomas de Alerta": [
-    "🌡️ Si tienes fiebre o presión alta, contacta a tu médico de inmediato.",
-    "🧴 Cambios en la orina o edemas pueden ser signos de alerta. No los ignores.",
-    "🤢 Náuseas, diarrea o dolor en la zona del trasplante requieren atención médica.",
-    "🟡 Ictericia o color amarillento en piel y ojos: consulta urgente."
-  ],
-  "Seguridad Alimentaria Avanzada": [
+    "🍋 Evita el pomelo. Puede alterar tu medicación.",
     "🔥 Cocina bien carnes y pescados: res 72°C, pollo 83°C, pescado 60°C.",
     "🥶 Descongela alimentos en la nevera, nunca a temperatura ambiente.",
     "🧴 Lava frutas y verduras con lejía alimentaria apta antes de consumir.",
     "🚫 Evita alimentos con envases hinchados u olores raros.",
     "🧀 No comas quesos no pasteurizados o lácteos crudos.",
-    "🥫 Guarda los alimentos cocinados en la nevera máximo 3 días."
+    "🥫 Guarda los alimentos cocinados en la nevera máximo 3 días.",
+    "🍳 Cocina los alimentos completamente. Evita fritos y ultraprocesados.",
+    "🧂 Reduce la sal. Usa ajo, limón o especias para dar sabor.",
+    "🐟 Prefiere grasas buenas como las del pescado azul y el aceite de oliva."
   ],
-  "Hidratación y Bebidas": [
+
+  "Higiene y Prevención de Infecciones": [
+    "🧴 ¿Te vas a tatuar? Consulta primero con tu médico.",
+    "🚿 Limpia el tatuaje a diario y evita el sol hasta que cicatrice.",
+    "👕 No uses ropa ajustada sobre un tatuaje reciente.",
+    "🖐️ Lava tus manos con frecuencia. Es la mejor defensa contra infecciones.",
+
+    "🛏️ Si tienes fiebre, dificultad para respirar o náuseas, avisa a tu médico."
+  ],
+
+  "Exposición al Sol": [
+    "☀️ Aplica protector solar todos los días, incluso si está nublado.",
+    "🕑 Evita el sol entre las 12:00 y las 16:00.",
+    "🚫 No uses cabinas de bronceado ni camas solares."
+  ],
+  "Vacunas recomendadas y vaijes internacionales": [
+    "💼 Lleva el doble de medicación si vas a viajar.",
+    "🏥 Localiza un hospital cerca de tu destino antes de viajar.",
+    "🧴 Desinfecta frutas y verduras fuera de casa.",
     "🚰 Bebe solo agua embotellada o del grifo seguro.",
     "🧊 Evita los cubitos de hielo fuera de casa: pueden estar contaminados.",
     "☕ Reduce el consumo de café, té y bebidas con cafeína."
   ],
-  "Apoyo Psicológico y Emocional": [
-    "🧠 Si te sientes abrumado, habla con tu médico o busca apoyo emocional.",
-    "👥 Mantén comunicación abierta con tu familia y equipo médico."
-  ],
-  "Ejercicio Físico": [
+  "Otras medidas preventivas": [
+    "🐾 Evita mascotas durante el primer año post-trasplante.",
+    "🧤 Si haces jardinería, usa mascarilla FFP2 y guantes.",
+    "🐍 Evita el contacto con reptiles y animales enfermos.",
     "🚶‍♂️ Realiza ejercicio moderado y progresivo según indique tu médico.",
     "⛔ Evita deportes de alto impacto o riesgo tras el trasplante."
   ]

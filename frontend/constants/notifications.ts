@@ -16,7 +16,7 @@ const getRandomPopup = () => {
   };
 };
 
-// ✅ PROGRAMAR UNA NOTIFICACIÓN RECURRENTE CADA X SEGUNDOS (default: 3600s = 1h)
+// PROGRAMAR UNA NOTIFICACIÓN RECURRENTE CADA X SEGUNDOS (default: 3600s = 1h)
 export const scheduleMultiplePopupNotifications = async () => {
   for (let i = 1; i <= 5; i++) {
     const { categoria, mensaje } = getRandomPopup();
@@ -26,7 +26,8 @@ export const scheduleMultiplePopupNotifications = async () => {
     );
 
     const temaId = temaEncontrado?.id ?? "01";
-
+    //ScheduleNotificationAsync hace posible que se ejecute en segundo plano
+    // y se muestre una notificación en la pantalla de bloqueo o en el centro de notificaciones
     await Notifications.scheduleNotificationAsync({
       content: {
         title: `${categoria}`,
@@ -43,5 +44,5 @@ export const scheduleMultiplePopupNotifications = async () => {
     });
   }
 
-  console.log("✅ 5 notificaciones programadas para los próximos 5 minutos");
+  console.log(" 5 notificaciones programadas para los próximos 5 minutos");
 };

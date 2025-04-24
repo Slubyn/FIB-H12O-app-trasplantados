@@ -204,7 +204,7 @@ const Dashboard: React.FC = () => {
                 },
               });
 
-              console.log("✅ Notificación programada para 60s");
+              console.log(" Notificación programada para 60s");
             }}
           /> */}
         </View>

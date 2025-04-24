@@ -20,7 +20,7 @@ import { useRouter } from "expo-router";
 // Evita que se oculte el splash screen antes de tiempo
 SplashScreen.preventAutoHideAsync();
 
-// ✅ Manejador para mostrar notificaciones mientras la app está abierta
+// Manejador para mostrar notificaciones mientras la app está abierta
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
@@ -40,10 +40,10 @@ export default function RootLayout() {
     if (loaded) SplashScreen.hideAsync();
   }, [loaded]);
 
-  // ✅ CONFIGURAR NOTIFICACIONES
+  // CONFIGURAR NOTIFICACIONES
   useEffect(() => {
     const setupNotifications = async () => {
-      console.log("⏰ Configurando notificaciones...");
+      console.log(" Configurando notificaciones...");
       if (Device.isDevice) {
         const { status: existingStatus } =
           await Notifications.getPermissionsAsync();
@@ -61,7 +61,7 @@ export default function RootLayout() {
 
         // Canal para Android
         await Notifications.setNotificationChannelAsync("default", {
-          name: "default",
+          name: "Predeterminado",
           importance: Notifications.AndroidImportance.HIGH,
           sound: "default",
         });
@@ -74,13 +74,13 @@ export default function RootLayout() {
     setupNotifications();
   }, []);
 
-  // ✅ ESCUCHAR CLICK EN NOTIFICACIÓN
+  //  ESCUCHAR CLICK EN NOTIFICACIÓN
   useEffect(() => {
     const subscription = Notifications.addNotificationResponseReceivedListener(
       (response) => {
         const temaId = response.notification.request.content.data.temaId;
         if (temaId) {
-          console.log("🔁 Redirigiendo a /guia/" + temaId);
+          console.log(" Redirigiendo a /guia/" + temaId);
           router.push(`/guia/${temaId}`);
         }
       }

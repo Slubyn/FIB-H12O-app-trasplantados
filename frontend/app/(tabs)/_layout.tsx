@@ -28,7 +28,7 @@ export default function TabLayout() {
         <Tabs.Screen
           name="index"
           options={{
-            href: null, // 👈 Esto oculta la ruta completamente del sistema de navegación
+            href: null, // Esto oculta la ruta completamente del sistema de navegación
           }}
         />
         <Tabs.Screen
