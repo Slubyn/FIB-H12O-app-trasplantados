@@ -5,44 +5,55 @@ import temas from "@/constants/temas.json";
 type PopupCategories = keyof typeof popups;
 const categorias = Object.keys(popups) as PopupCategories[];
 
+// Horas específicas (repetidas cada día)
+const horarios_notificaciones = [
+  { hora: 13, minutos: 53 },
+  { hora: 13, minutos: 55 },
+];
+
 const getRandomPopup = () => {
   const categoriaRandom =
     categorias[Math.floor(Math.random() * categorias.length)];
   const mensajes = popups[categoriaRandom];
   const mensajeRandom = mensajes[Math.floor(Math.random() * mensajes.length)];
+
   return {
     categoria: categoriaRandom,
     mensaje: mensajeRandom,
   };
 };
 
-// PROGRAMAR UNA NOTIFICACIÓN RECURRENTE CADA X SEGUNDOS (default: 3600s = 1h)
 export const scheduleMultiplePopupNotifications = async () => {
-  for (let i = 1; i <= 5; i++) {
-    const { categoria, mensaje } = getRandomPopup();
+  try {
+    await Notifications.cancelAllScheduledNotificationsAsync();
+    for (const horario of horarios_notificaciones) {
+      const { categoria, mensaje } = getRandomPopup();
 
-    const temaEncontrado = temas.find((tema) =>
-      tema.titulo.toLowerCase().includes(categoria.toLowerCase().split(" ")[0])
-    );
+      const temaEncontrado = temas.find((tema) =>
+        tema.titulo
+          .toLowerCase()
+          .includes(categoria.toLowerCase().split(" ")[0])
+      );
 
-    const temaId = temaEncontrado?.id ?? "01";
-    //ScheduleNotificationAsync hace posible que se ejecute en segundo plano
-    // y se muestre una notificación en la pantalla de bloqueo o en el centro de notificaciones
-    await Notifications.scheduleNotificationAsync({
-      content: {
-        title: `${categoria}`,
-        body: mensaje,
-        sound: true,
-        data: { temaId: temaId },
-      },
-      trigger: {
-        seconds: i * 60,
-        channelId: "default",
-        type: "timeInterval" as any,
-        repeats: false,
-      },
-    });
+      const temaId = temaEncontrado?.id ?? "01";
+
+      await Notifications.scheduleNotificationAsync({
+        content: {
+          title: categoria,
+          body: mensaje,
+          sound: true,
+          data: { temaId },
+        },
+        trigger: {
+          type: "calendar",
+          hour: horario.hora,
+          minute: horario.minutos,
+          repeats: true,
+          channelId: "default",
+        } as Notifications.CalendarTriggerInput,
+      });
+    }
+  } catch (e) {
+    console.error("❌ Error al programar la notificación:", e);
   }
-
-  console.log(" 5 notificaciones programadas para los próximos 5 minutos");
 };

@@ -22,16 +22,16 @@ export default function TestTabsSinImagenes() {
   const scrollRef = useRef<ScrollView>(null);
   const sectionPositions = useRef<Record<string, number>>({});
 
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
   const tema = temas.find((t) => t.id === id);
 
-  useEffect(() => {
-    if (tema) {
-      navigation.setOptions({ title: String(tema.titulo ?? "") });
-    }
-  }, [tema]);
+  // useEffect(() => {
+  //   if (tema) {
+  //     navigation.setOptions({ title: String(tema.titulo ?? "") });
+  //   }
+  // }, [tema]);
 
-  const headerOffset = 60;
+  const headerOffset = 40;
 
   const handleSectionLayout = (titulo: string, e: LayoutChangeEvent) => {
     sectionPositions.current[titulo] = e.nativeEvent.layout.y;

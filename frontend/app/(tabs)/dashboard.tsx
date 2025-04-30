@@ -16,8 +16,7 @@ import {
 import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { BotonUtilidades } from "@/components/BotonUtilidades";
-import * as Notifications from "expo-notifications";
-import { TimeIntervalNotificationTrigger } from "expo-notifications";
+
 // import { scheduleRepeatingPopupNotification } from "@/constants/notifications";
 
 const ancho_pantalla = Dimensions.get("window").width;
