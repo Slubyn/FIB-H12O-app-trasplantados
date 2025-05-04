@@ -2,9 +2,8 @@
   "expo": {
     "name": "app-H12O",
     "slug": "app-H12O",
-    "experimental": {
-      "router": true
-    },
+    "sdkVersion": "53.0.0",
+
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

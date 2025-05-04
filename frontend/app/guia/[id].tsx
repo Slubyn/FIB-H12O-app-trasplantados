@@ -17,6 +17,30 @@ import { iconMap } from "@/constants/iconMap";
 import { imageMap } from "@/constants/imageMap";
 import temas from "@/constants/temas.json";
 
+const estilosPorTema: Record<
+  string,
+  {
+    headerOverlayColor?: string;
+    headerTituloColor?: string;
+    sectionTitleColor?: string;
+    backgroundColor?: string;
+  }
+> = {
+  "01": {
+    headerOverlayColor: "rgba(255,255,255,0.3)",
+    headerTituloColor: "#4E342E",
+    sectionTitleColor: "#4E342E",
+    backgroundColor: "#f2f2f2",
+  },
+  "02": {
+    headerOverlayColor: "rgba(0,0,0,0.3)",
+    headerTituloColor: "#FFFFFF",
+    sectionTitleColor: "#222222",
+    backgroundColor: "#E6F7FF",
+  },
+  // Puedes añadir aquí los estilos de los otros temas...
+};
+
 export default function TestTabsSinImagenes() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const scrollRef = useRef<ScrollView>(null);
@@ -24,6 +48,7 @@ export default function TestTabsSinImagenes() {
 
   // const navigation = useNavigation();
   const tema = temas.find((t) => t.id === id);
+  const temaEstilos = estilosPorTema[tema?.id ?? ""] ?? {};
 
   // useEffect(() => {
   //   if (tema) {
@@ -67,7 +92,14 @@ export default function TestTabsSinImagenes() {
           )}
           <View style={styles.headerOverlay}>
             <Text style={styles.headerNumero}>{String(tema.id ?? "")}</Text>
-            <Text style={styles.headerTitulo}>{String(tema.titulo ?? "")}</Text>
+            <Text
+              style={[
+                styles.headerTitulo,
+                { color: temaEstilos.headerTituloColor },
+              ]}
+            >
+              {String(tema.titulo ?? "")}
+            </Text>
           </View>
         </View>
 
@@ -100,9 +132,19 @@ export default function TestTabsSinImagenes() {
           <View
             key={sec.titulo}
             onLayout={(e) => handleSectionLayout(sec.titulo, e)}
-            style={styles.section}
+            style={[
+              styles.section,
+              { backgroundColor: temaEstilos.backgroundColor },
+            ]}
           >
-            <Text style={styles.sectionTitle}>{String(sec.titulo ?? "")}</Text>
+            <Text
+              style={[
+                styles.sectionTitle,
+                { color: temaEstilos.sectionTitleColor },
+              ]}
+            >
+              {String(sec.titulo ?? "")}
+            </Text>
             {sec.contenido?.map((item, i) => (
               <View key={i} style={styles.card}>
                 {iconMap[item.icono] && (
