@@ -30,7 +30,7 @@ const estilosPorTema: Record<
     headerOverlayColor: "rgba(255,255,255,0.3)",
     headerTituloColor: "#4E342E",
     sectionTitleColor: "#4E342E",
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "#eca332",
   },
   "02": {
     headerOverlayColor: "rgba(0,0,0,0.3)",
@@ -56,7 +56,7 @@ export default function TestTabsSinImagenes() {
   //   }
   // }, [tema]);
 
-  const headerOffset = 40;
+  const headerOffset = 25;
 
   const handleSectionLayout = (titulo: string, e: LayoutChangeEvent) => {
     sectionPositions.current[titulo] = e.nativeEvent.layout.y;
@@ -132,10 +132,7 @@ export default function TestTabsSinImagenes() {
           <View
             key={sec.titulo}
             onLayout={(e) => handleSectionLayout(sec.titulo, e)}
-            style={[
-              styles.section,
-              { backgroundColor: temaEstilos.backgroundColor },
-            ]}
+            style={[styles.section]}
           >
             <Text
               style={[
@@ -188,7 +185,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentContainer: {
-    paddingBottom: 100,
+    paddingBottom: 10,
   },
   noTemaContainer: {
     flex: 1,

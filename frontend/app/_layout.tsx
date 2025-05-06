@@ -22,11 +22,13 @@ SplashScreen.preventAutoHideAsync();
 
 // Manejador para mostrar notificaciones mientras la app está abierta
 Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: false,
-  }),
+  handleNotification: async () => {
+    return {
+      shouldShowAlert: true,
+      shouldPlaySound: true,
+      shouldSetBadge: false,
+    } as Notifications.NotificationBehavior;
+  },
 });
 
 export default function RootLayout() {

@@ -1,14 +1,15 @@
 import * as Notifications from "expo-notifications";
 import popups from "@/constants/popups.json";
 import temas from "@/constants/temas.json";
+import { Platform } from "react-native";
 
 type PopupCategories = keyof typeof popups;
 const categorias = Object.keys(popups) as PopupCategories[];
 
 // Horas específicas (repetidas cada día)
 const horarios_notificaciones = [
-  { hora: 13, minutos: 53 },
-  { hora: 13, minutos: 55 },
+  { hora: 19, minutos: 18 },
+  { hora: 19, minutos: 20 },
 ];
 
 const getRandomPopup = () => {
@@ -44,16 +45,32 @@ export const scheduleMultiplePopupNotifications = async () => {
           sound: true,
           data: { temaId },
         },
-        trigger: {
-          type: "calendar",
-          hour: horario.hora,
-          minute: horario.minutos,
-          repeats: true,
-          channelId: "default",
-        } as Notifications.CalendarTriggerInput,
+        trigger:
+          Platform.OS === "android"
+            ? ({
+                type: "daily",
+                hour: horario.hora,
+                minute: horario.minutos,
+                repeats: true,
+                channelId: "default",
+              } as Notifications.DailyTriggerInput)
+            : ({
+                type: "calendar",
+                hour: horario.hora,
+                minute: horario.minutos,
+                repeats: true,
+              } as Notifications.CalendarTriggerInput),
+
+        // trigger: {
+        //   type: "calendar",
+        //   hour: horario.hora,
+        //   minute: horario.minutos,
+        //   repeats: true,
+        //   channelId: "default",
+        // } as Notifications.CalendarTriggerInput,
       });
     }
   } catch (e) {
-    console.error("❌ Error al programar la notificación:", e);
+    console.error("Error al programar la notificación:", e);
   }
 };
