@@ -10,8 +10,10 @@ import {
   StatusBar, //para ajustar margenes o estilos
   ScrollView,
   Animated, //animated flatlist
+  FlatList, //para hacer scroll horizontal
   ImageBackground, //para poner una imagen de fondo
   Alert, //alertas
+  Image, //para mostrar imágenes
 } from "react-native";
 import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -59,16 +61,30 @@ const Dashboard: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <ImageBackground
+        <View style={styles.topBackground}>
+          <Image
+            source={require("@/assets/images/fondo-iconos-rin.png")} // ruta de tu imagen
+            style={styles.headerImage}
+            resizeMode="cover" 
+          />
+        </View>
+      {/* <ImageBackground
         source={require("@/assets/images/fondo-iconos-rin.png")} // reemplaza por tu fondo
         style={styles.background}
         resizeMode="stretch" //como se adapta la imagen al contenedor
         imageStyle={{ opacity: 0.08 }}
-      >
+      > */}
+        {/* Header por si acaso*/}
+        {/* <View style={styles.header}>
+          <Image source={require("@/assets/images/avatar.png")} style={styles.avatar} />
+          <Text style={styles.greeting}>¡Hola, Rebeca!</Text>
+          <Ionicons name="notifications-outline" size={24} color="#FF8C5B" />
+        </View> */}
+
         <ScrollView contentContainerStyle={styles.container}>
           <Text style={styles.title}>Hola, Rebeca</Text>
           <Text style={styles.subtitle}>Guía de recomendaciones</Text>
-
+          
           {/* Carrusel */}
           <Animated.FlatList
             data={cards}
@@ -177,32 +193,15 @@ const Dashboard: React.FC = () => {
               }
               onPress={() => {}}
             />
-
-            {/* <BotonUtilidades
-              title="Probar notificación en 60s"
-              icon={<MaterialIcons name="alarm" size={24} color="#FF8C5B" />}
-              onPress={async () => {
-                await Notifications.cancelAllScheduledNotificationsAsync();
-
-                await Notifications.scheduleNotificationAsync({
-                  content: {
-                    title: "⏰ Notificación",
-                    body: "Esta aparecerá en 60 segundos",
-                    sound: true,
-                  },
-                  trigger: {
-                    type: "timeInterval" as any, // 👈 forzamos compatibilidad
-                    seconds: 6000,
-                    repeats: false,
-                  },
-                });
-
-                console.log("✅ Notificación programada para 60s");
-              }}
-            /> */}
+        
+          {/* Calendario ejemplo/}
+          {/* </View>
+            <View style={styles.calendarPreview}>
+            <Text style={styles.eventText}>📅 Próxima cita: 12 mayo a las 10:00</Text>
+          </View> */}
           </View>
         </ScrollView>
-      </ImageBackground>
+      {/* </ImageBackground> */}
     </SafeAreaView>
   );
 };
@@ -216,6 +215,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     backgroundColor: colores.fondo,
+    position: "relative",
   },
   background: {
     flex: 1,
@@ -228,14 +228,54 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: colores.texto,
+    color: colores.fondo,
   },
   subtitle: {
     marginTop: 28,
     fontSize: 20,
     fontWeight: "600",
-    color: colores.texto,
+    color: colores.fondo,
+  }, 
+  calendarPreview: {
+    backgroundColor: '#FFF5E5', // tono cálido del fondo
+    borderRadius: 16,
+    padding: 16,
+    marginTop: 24,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 4,
+    alignItems: 'center',
   },
+  topBackground: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 280,
+    backgroundColor: colores.primario, // el color salmón
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
+    overflow: "hidden",
+    zIndex: -1, // para que quede detrás del contenido
+    
+    
+  },  
+  headerImage: {
+    width: "100%",
+    height: "100%",
+    opacity: 0.3, 
+    position: "absolute",
+    top: 0,
+    left: 0,
+  },  
+  eventText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#4E342E', // marrón grisáceo (color del texto principal)
+    textAlign: 'center',
+  },  
   carouselContainer: {
     paddingTop: 16,
     paddingBottom: 10,
@@ -306,5 +346,23 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#4E342E",
     fontWeight: "500",
-  },*/
+  },
+    header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 16,
+  },
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+  greeting: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: colores.texto,
+    flex: 1,
+    marginLeft: 12,
+  }, */
 });
