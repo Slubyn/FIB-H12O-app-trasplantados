@@ -1,16 +1,16 @@
 [
   {
     "id": "01",
-    "titulo": "Inmunosupresión, adherencia terapéutica y efectos secundarios",
+    "titulo": "Inmunosupresión",
     "imagenFondo": "Cabecera.png",
     "secciones": [
       {
         "titulo": "¿Qué es la inmunosupresión?",
         "contenido": [
           {
-            "icono": "pildora.png",
+            "icono": "pildora2.png",
             "texto": "La inmunosupresión es la terapia clave en el trasplante. En algunos casos se inicia antes del trasplante y se ajusta de manera individualizada, una vez el paciente ha recibido el órgano. Sin el tratamiento inmunosupresor, el sistema inmunitario responde agresivamente contra un trasplante, del mismo modo que lo hace contra las infecciones. Esta respuesta, que es conocida como rechazo, puede ocasionar la pérdida del órgano, por eso es muy importante que el tratamiento se tome diariamente. Deberá tomar esta medicación de por vida.",
-            "imagen": "javaImagen.png"
+            "imagen": "javaImagen2.png"
           }
         ]
       },
@@ -76,7 +76,7 @@
         "contenido": [
           {
             "icono": "medicamento-roto.png",
-            "texto": "La toma de medicamentos por iniciativa\r\npropia sin prescripci\u00F3n o seguimiento\r\nm\u00E9dico puede ser perjudicial. Las consecuencias de un uso irresponsable de los\r\nf\u00E1rmacos pueden ser: ",
+            "texto": "La toma de medicamentos por iniciativa\r\npropia sin prescripci\u00F3n o seguimiento\r\nm\u00E9dico puede ser perjudicial. Las consecuencias de un uso irresponsable de los f\u00E1rmacos pueden ser: ",
             "imagen": "ensalada.png"
           }
         ]
@@ -880,7 +880,7 @@
         "contenido": [
           {
             "icono": "toxicidad.png",
-            "texto": "Evitar poseer mascotas, en especial durante el primer año posterior al trasplante.",
+            "texto": "Evitar poseer mascotas, en especial durante el primer año posterior al trasplante. ",
             "imagen": "ensalada.png"
           },
           {

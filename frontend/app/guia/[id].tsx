@@ -10,9 +10,9 @@ import {
   SafeAreaView,
   Platform,
   StatusBar,
+  Animated,
 } from "react-native";
 import { useLocalSearchParams } from "expo-router";
-import { useNavigation } from "@react-navigation/native";
 import { iconMap } from "@/constants/iconMap";
 import { imageMap } from "@/constants/imageMap";
 import temas from "@/constants/temas.json";
@@ -24,19 +24,22 @@ const estilosPorTema: Record<
     headerTituloColor?: string;
     sectionTitleColor?: string;
     backgroundColor?: string;
+    colorNumber?: string;
   }
 > = {
   "01": {
     headerOverlayColor: "rgba(255,255,255,0.3)",
-    headerTituloColor: "#4E342E",
+    headerTituloColor: "black",
     sectionTitleColor: "#4E342E",
     backgroundColor: "#eca332",
+    colorNumber: "#fff9f7",
   },
   "02": {
     headerOverlayColor: "rgba(0,0,0,0.3)",
     headerTituloColor: "#FFFFFF",
     sectionTitleColor: "#222222",
     backgroundColor: "#E6F7FF",
+    colorNumber: "#fff9f7",
   },
   // Puedes añadir aquí los estilos de los otros temas...
 };
@@ -56,7 +59,7 @@ export default function TestTabsSinImagenes() {
   //   }
   // }, [tema]);
 
-  const headerOffset = 25;
+  const headerOffset = 55;
 
   const handleSectionLayout = (titulo: string, e: LayoutChangeEvent) => {
     sectionPositions.current[titulo] = e.nativeEvent.layout.y;
@@ -77,10 +80,13 @@ export default function TestTabsSinImagenes() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
+      {/* barra informacion */}
+      <StatusBar barStyle="dark-content" />
       <ScrollView
         ref={scrollRef}
         style={styles.scrollView}
         contentContainerStyle={styles.contentContainer}
+        stickyHeaderIndices={[1]}
       >
         <View style={styles.headerContainer}>
           {imageMap[tema.imagenFondo] && (
@@ -91,7 +97,11 @@ export default function TestTabsSinImagenes() {
             />
           )}
           <View style={styles.headerOverlay}>
-            <Text style={styles.headerNumero}>{String(tema.id ?? "")}</Text>
+            <Text
+              style={[styles.headerNumero, { color: temaEstilos.colorNumber }]}
+            >
+              {String(tema.id ?? "")}
+            </Text>
             <Text
               style={[
                 styles.headerTitulo,
@@ -102,7 +112,7 @@ export default function TestTabsSinImagenes() {
             </Text>
           </View>
         </View>
-
+        {/* tabs */}
         {tema.secciones.length > 1 && (
           <ScrollView
             horizontal
@@ -186,6 +196,8 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingBottom: 10,
+
+    // backgroundColor: "red",
   },
   noTemaContainer: {
     flex: 1,
@@ -203,29 +215,37 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     height: 200,
     position: "relative",
-    marginBottom: 16,
+    marginBottom: 10,
     justifyContent: "center",
     alignItems: "center",
   },
   headerOverlay: {
+    padding: 10,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(255,255,255,0.3)",
+    backgroundColor: "rgba(227, 227, 227, 0.29)",
+    borderTopLeftRadius: 20,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    borderTopRightRadius: 20,
   },
   headerNumero: {
     fontSize: 36,
     fontWeight: "bold",
-    color: "#F95F62",
   },
   headerTitulo: {
-    fontSize: 20,
-    fontWeight: "600",
-    color: "#4E342E",
+    textTransform: "uppercase",
+    letterSpacing: 2,
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "black",
   },
   tabs: {
     paddingHorizontal: 10,
-    paddingVertical: 5,
+    paddingVertical: 10,
     marginBottom: 10,
+
+    backgroundColor: "#FFF5E5",
   },
   tabsContent: {
     flexDirection: "row",
@@ -245,13 +265,15 @@ const styles = StyleSheet.create({
     color: "#4E342E",
   },
   section: {
-    marginBottom: 30,
-    paddingHorizontal: 20,
+    marginBottom: 12,
+    paddingHorizontal: 18,
+    // backgroundColor: "red",
   },
   sectionTitle: {
-    fontSize: 18,
+    paddingHorizontal: 1,
+    fontSize: 20.5,
     fontWeight: "bold",
-    marginBottom: 14,
+    marginBottom: 15,
     color: "#4E342E",
   },
   card: {
@@ -261,18 +283,27 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 14,
     marginBottom: 14,
-    shadowColor: "#000",
-    shadowOpacity: 0.05,
-    shadowOffset: { width: 0, height: 1 },
-    shadowRadius: 3,
-    elevation: 2,
+    ...(Platform.OS === "ios"
+      ? {
+          shadowColor: "rgba(0, 0, 0, 0.81)",
+          shadowOffset: { width: 0, height: 4 },
+          shadowOpacity: 0.3,
+          shadowRadius: 5,
+        }
+      : {
+          elevation: 3,
+        }),
+
     gap: 12,
   },
   text: {
     flex: 1,
     fontSize: 16,
+    fontWeight: "normal",
+    // fontStyle: "italic",
     lineHeight: 22,
     color: "#4E342E",
+    margin: 3,
   },
   title: {
     fontSize: 20,
@@ -287,7 +318,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   headerImage: {
-    borderRadius: 30,
+    opacity: 0.9,
     position: "absolute",
     top: 0,
     left: 0,
