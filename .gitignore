@@ -7,6 +7,7 @@ frontend/build/
 frontend/ios/
 frontend/android/
 frontend/web-build/
+frontend/iniciar_expo.bat
 
 # BACKEND (Spring Boot)
 backend/target/
