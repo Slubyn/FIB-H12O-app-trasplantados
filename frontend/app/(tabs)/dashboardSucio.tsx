@@ -15,11 +15,11 @@ import {
   Alert, //alertas
   Image, //para mostrar imágenes
 } from "react-native";
-import Svg, { Path } from "react-native-svg";
 import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { BotonUtilidades } from "@/components/BotonUtilidades";
-import { useSafeAreaInsets } from "react-native-safe-area-context"; //para evitar que el contenido se superponga a la barra de estado
+
+// import { scheduleRepeatingPopupNotification } from "@/constants/notifications";
 
 const ancho_pantalla = Dimensions.get("window").width;
 const ancho_tarjeta = ancho_pantalla * 0.5; // ocupará el % del total
@@ -31,7 +31,7 @@ const colores = {
   texto: "#4E342E", // Marrón grisáceo
   secundario: "#F5E1C2", // Beige arena
 };
-  
+
 const cards = [
   { number: "01", text: "Inmunosupresión", id: "01" },
   { number: "02", text: "Automedicación", id: "02" },
@@ -49,6 +49,10 @@ const Dashboard: React.FC = () => {
   const router = useRouter();
   const scrollX = useRef(new Animated.Value(0)).current;
 
+  // useEffect(() => {
+  //   scheduleRepeatingPopupNotification(61); // lanza una notificación en 5 segundos al entrar
+  // }, []);
+
   const handleScroll = (event: any) => {
     const scrollX = event.nativeEvent.contentOffset.x;
     const index = Math.round(scrollX / (ancho_tarjeta + 1));
@@ -64,6 +68,20 @@ const Dashboard: React.FC = () => {
             resizeMode="cover" 
           />
         </View>
+
+      {/* <ImageBackground
+        source={require("@/assets/images/fondo-iconos-rin.png")} // reemplaza por tu fondo
+        style={styles.background}
+        resizeMode="stretch" //como se adapta la imagen al contenedor
+        imageStyle={{ opacity: 0.08 }}
+      > */}
+        {/* Header por si acaso*/}
+        {/* <View style={styles.header}>
+          <Image source={require("@/assets/images/avatar.png")} style={styles.avatar} />
+          <Text style={styles.greeting}>¡Hola, Rebeca!</Text>
+          <Ionicons name="notifications-outline" size={24} color="#FF8C5B" />
+        </View> */}
+
         <ScrollView contentContainerStyle={styles.container}>
           <Text style={styles.title}>Hola, Rebeca</Text>
           <Text style={styles.subtitle}>Guía de recomendaciones</Text>
@@ -176,8 +194,15 @@ const Dashboard: React.FC = () => {
               }
               onPress={() => {}}
             />
-        </View>
-      </ScrollView>
+        
+          {/* Calendario ejemplo/}
+          {/* </View>
+            <View style={styles.calendarPreview}>
+            <Text style={styles.eventText}>📅 Próxima cita: 12 mayo a las 10:00</Text>
+          </View> */}
+          </View>
+        </ScrollView>
+      {/* </ImageBackground> */}
     </SafeAreaView>
   );
 };
@@ -201,31 +226,6 @@ const styles = StyleSheet.create({
     marginTop: 16,
     paddingBottom: Platform.OS === "ios" ? 10 : 40,
   },
-  topBackground: {
-    flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "center",
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    height: Platform.OS === "android" ? 290 : 300,
-    backgroundColor: colores.primario, // el color salmón
-    borderBottomLeftRadius: 80,
-    borderBottomRightRadius: 200,
-    overflow: "hidden",
-    transform: [
-      { scaleX: 1.05 }, // desplaza el fondo hacia arriba
-    ],
-  },  
-  headerImage: {
-    width: "100%",
-    height: "100%",
-    opacity: 0.3, 
-    position: "absolute",
-    top: 0,
-    left: 0,
-  },
   title: {
     fontSize: 28,
     fontWeight: "bold",
@@ -242,6 +242,46 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "600",
     color: colores.texto,
+  },
+  calendarPreview: {
+    backgroundColor: '#FFF5E5', // tono cálido del fondo
+    borderRadius: 16,
+    padding: 16,
+    marginTop: 24,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 4,
+    alignItems: 'center',
+  },
+  topBackground: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 280,
+    backgroundColor: colores.primario, // el color salmón
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
+    overflow: "hidden",
+    zIndex: -1, // para que quede detrás del contenido
+    
+    
+  },  
+  headerImage: {
+    width: "100%",
+    height: "100%",
+    opacity: 0.3, 
+    position: "absolute",
+    top: 0,
+    left: 0,
+  },  
+  eventText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#4E342E', // marrón grisáceo (color del texto principal)
+    textAlign: 'center',
   },  
   carouselContainer: {
     paddingTop: 16,
@@ -296,4 +336,40 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 5,
   },
+  /*button: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#FFFFFF",
+    padding: 16,
+    borderRadius: 14,
+    elevation: 2,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 1 },
+    shadowRadius: 2,
+  },
+  buttonText: {
+    marginLeft: 14,
+    fontSize: 16,
+    color: "#4E342E",
+    fontWeight: "500",
+  },
+    header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 16,
+  },
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+  greeting: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: colores.texto,
+    flex: 1,
+    marginLeft: 12,
+  }, */
 });

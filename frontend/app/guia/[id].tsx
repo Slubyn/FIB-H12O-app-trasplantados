@@ -17,6 +17,13 @@ import { iconMap } from "@/constants/iconMap";
 import { imageMap } from "@/constants/imageMap";
 import temas from "@/constants/temas.json";
 
+const colores = {
+  fondo: "#FFFFFF", // Blanco puro
+  primario: "#FF8C5B", // Naranja salmón
+  acento: "#F95F62", // Rojo coral
+  texto: "#4E342E", // Marrón grisáceo
+  secundario: "#F5E1C2", // Beige arena
+};
 const estilosPorTema: Record<
   string,
   {
@@ -29,10 +36,10 @@ const estilosPorTema: Record<
 > = {
   "01": {
     headerOverlayColor: "rgba(255,255,255,0.3)",
-    headerTituloColor: "black",
+    headerTituloColor: "4E342E",
     sectionTitleColor: "#4E342E",
     backgroundColor: "#eca332",
-    colorNumber: "#fff9f7",
+    colorNumber: "4E342E",
   },
   "02": {
     headerOverlayColor: "rgba(0,0,0,0.3)",
