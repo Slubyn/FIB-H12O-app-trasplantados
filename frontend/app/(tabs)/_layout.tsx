@@ -18,7 +18,7 @@ export default function TabLayout() {
         screenOptions={{
           tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
           headerShown: false,
-          tabBarButton: HapticTab,
+          // tabBarButton: HapticTab,
           tabBarBackground: TabBarBackground,
           tabBarStyle: {
             display: "none", // Oculta la barra inferior

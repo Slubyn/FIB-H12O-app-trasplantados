@@ -8,8 +8,8 @@ const categorias = Object.keys(popups) as PopupCategories[];
 
 // Horas específicas (repetidas cada día)
 const horarios_notificaciones = [
-  { hora: 19, minutos: 18 },
-  { hora: 19, minutos: 20 },
+  { hora: 15, minutos: 34 },
+  { hora: 15, minutos: 37 },
 ];
 
 const getRandomPopup = () => {
