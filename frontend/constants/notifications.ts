@@ -40,7 +40,7 @@ export const scheduleMultiplePopupNotifications = async () => {
 
       await Notifications.scheduleNotificationAsync({
         content: {
-          title: categoria,
+          // title: categoria,
           body: mensaje,
           sound: true,
           data: { temaId },
