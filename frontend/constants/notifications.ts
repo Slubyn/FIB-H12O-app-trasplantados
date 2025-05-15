@@ -8,8 +8,8 @@ const categorias = Object.keys(popups) as PopupCategories[];
 
 // Horas específicas (repetidas cada día)
 const horarios_notificaciones = [
-  { hora: 19, minutos: 18 },
-  { hora: 19, minutos: 20 },
+  { hora: 10, minutos: 23 },
+  { hora: 10, minutos: 24 },
 ];
 
 const getRandomPopup = () => {
@@ -40,7 +40,7 @@ export const scheduleMultiplePopupNotifications = async () => {
 
       await Notifications.scheduleNotificationAsync({
         content: {
-          title: categoria,
+          // title: categoria,
           body: mensaje,
           sound: true,
           data: { temaId },
