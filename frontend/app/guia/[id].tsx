@@ -11,11 +11,13 @@ import {
   Platform,
   StatusBar,
   Animated,
+  useWindowDimensions,
 } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { iconMap } from "@/constants/iconMap";
 import { imageMap } from "@/constants/imageMap";
 import temas from "@/constants/temas.json";
+import RenderHTML from "react-native-render-html";
 
 const colores = {
   fondo: "#FFFFFF", // Blanco puro
@@ -52,6 +54,7 @@ const estilosPorTema: Record<
 };
 
 export default function TestTabsSinImagenes() {
+  const { width } = useWindowDimensions();
   const { id } = useLocalSearchParams<{ id: string }>();
   const scrollRef = useRef<ScrollView>(null);
   const sectionPositions = useRef<Record<string, number>>({});
@@ -164,7 +167,16 @@ export default function TestTabsSinImagenes() {
                 {iconMap[item.icono] && (
                   <Image source={iconMap[item.icono]} style={styles.icon} />
                 )}
-                <Text style={styles.text}>{String(item.texto ?? "")}</Text>
+                <RenderHTML
+                  contentWidth={width}
+                  source={{ html: `<p>${item.texto}</p>` }}
+                  tagsStyles={{
+                    strong: { color: "black", fontWeight: "bold" },
+                    p: { fontSize: 16 },
+                    li: { fontSize: 16 },
+                    ul: { fontSize: 16 },
+                  }}
+                />
                 {item.imagen && imageMap[item.imagen] && (
                   <Image
                     source={imageMap[item.imagen]}

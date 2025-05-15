@@ -1,14 +1,14 @@
 {
-  "Inmunosupresión y adherencia": [
+  "Inmunosupresión": [
     "💊 Toma tu medicación a la hora exacta, sin cambios. ¡Es vital para tu trasplante!",
     "⚠️ ¿Olvidaste una dosis o tuviste vómitos? Contacta con tu médico cuanto antes.",
     "🚫 No mezcles medicamentos ni suplementos sin consultar al médico."
   ],
-  "Salud Sexual y Reproductiva": [
+  "Salud Sexual ": [
     "🛡️ Usa siempre protección. El riesgo de infecciones es mayor.",
     "👶 ¿Pensando en quedarte embarazada? Habla con tu nefrólogo antes."
   ],
-  "Seguridad Alimentaria y nutricion": [
+  "Alimentación": [
     "❌ No comas carnes crudas ni alimentos de dudosa procedencia.",
     "🚰 Toma solo agua embotellada. Evita el hielo.",
     "🍋 Evita el pomelo. Puede alterar tu medicación.",
@@ -23,7 +23,7 @@
     "🐟 Prefiere grasas buenas como las del pescado azul y el aceite de oliva."
   ],
 
-  "Higiene y Prevención de Infecciones": [
+  "Higiene y Prevención": [
     "🧴 ¿Te vas a tatuar? Consulta primero con tu médico.",
     "🚿 Limpia el tatuaje a diario y evita el sol hasta que cicatrice.",
     "👕 No uses ropa ajustada sobre un tatuaje reciente.",
@@ -37,7 +37,7 @@
     "🕑 Evita el sol entre las 12:00 y las 16:00.",
     "🚫 No uses cabinas de bronceado ni camas solares."
   ],
-  "Vacunas recomendadas y vaijes internacionales": [
+  "Vacunas y viajes": [
     "💼 Lleva el doble de medicación si vas a viajar.",
     "🏥 Localiza un hospital cerca de tu destino antes de viajar.",
     "🧴 Desinfecta frutas y verduras fuera de casa.",
@@ -45,7 +45,7 @@
     "🧊 Evita los cubitos de hielo fuera de casa: pueden estar contaminados.",
     "☕ Reduce el consumo de café, té y bebidas con cafeína."
   ],
-  "Otras medidas preventivas": [
+  "Otras medidas ": [
     "🐾 Evita mascotas durante el primer año post-trasplante.",
     "🧤 Si haces jardinería, usa mascarilla FFP2 y guantes.",
     "🐍 Evita el contacto con reptiles y animales enfermos.",
