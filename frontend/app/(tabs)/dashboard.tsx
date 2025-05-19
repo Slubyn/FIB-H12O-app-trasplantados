@@ -15,7 +15,7 @@ import {
   Alert, //alertas
   Image, //para mostrar imágenes
 } from "react-native";
-import Svg, { Path } from "react-native-svg";
+
 import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { BotonUtilidades } from "@/components/BotonUtilidades";

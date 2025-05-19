@@ -3,7 +3,7 @@
 
 # dependencies
 node_modules/
-fronted/iniciar_expo.bat
+frontend/iniciar_expo.bat
 # Expo
 .expo/
 dist/
