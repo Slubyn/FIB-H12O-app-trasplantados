@@ -3,13 +3,13 @@
 
 # dependencies
 node_modules/
-
+fronted/iniciar_expo.bat
 # Expo
 .expo/
 dist/
 web-build/
 expo-env.d.ts
-iniciar_expo.bat
+
 # Native
 *.orig.*
 *.jks
