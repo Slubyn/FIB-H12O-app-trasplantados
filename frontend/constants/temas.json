@@ -68,7 +68,7 @@
   },
   {
     "id": "02",
-    "titulo": "Peligros de la automedicación",
+    "titulo": "Automedicación",
     "imagenFondo": "nutricion-bg.jpg",
     "secciones": [
       {
@@ -145,7 +145,7 @@
   },
   {
     "id": "03",
-    "titulo": "Prevencion de infecciones: salud sexual y reproductiva",
+    "titulo": "Salud sexual",
     "imagenFondo": "nutricion-bg.jpg",
     "secciones": [
       {
@@ -197,7 +197,7 @@
   },
   {
     "id": "04",
-    "titulo": "Seguridad alimentaria y nutricón",
+    "titulo": "Alimentación",
     "imagenFondo": "nutricion-bg.jpg",
     "secciones": [
       {
@@ -314,27 +314,27 @@
         "contenido": [
           {
             "icono": "toxicidad.png",
-            "texto": "AZÚCARES: aunque usted nunca haya tenido diabetes, las medicinas contra el rechazo usadas como inmunosupresoras pueden causar diabetes. Si usted ya tenía diabetes antes del trasplante, el control de la glucosa en su sangre podría ser más difícil.",
+            "texto": "<strong>AZÚCARES:</strong> aunque usted nunca haya tenido diabetes, las medicinas contra el rechazo usadas como inmunosupresoras pueden causar diabetes. Si usted ya tenía diabetes antes del trasplante, el control de la glucosa en su sangre podría ser más difícil.",
             "imagen": "ensalada.png"
           },
           {
             "icono": "toxicidad.png",
-            "texto": "GRASAS: se recomienda evitar los productos que los contienen en exceso (fritos, embutidos, más de 2 huevos semanales, frutos secos, chocolates, grasas animales). Sin embargo, se recomiendan alimentos como el pescado azul, el aceite de oliva, la carne de pollo, entre otros.",
+            "texto": "<strong>GRASAS:</strong> se recomienda evitar los productos que los contienen en exceso (fritos, embutidos, más de 2 huevos semanales, frutos secos, chocolates, grasas animales). Sin embargo, se recomiendan alimentos como el pescado azul, el aceite de oliva, la carne de pollo, entre otros.",
             "imagen": "ensalada.png"
           },
           {
             "icono": "toxicidad.png",
-            "texto": "CONSUMA LÁCTEOS PASTEURIZADOS: Evite los yogures con bacterias vivas y quesos no pasteurizados. Los zumos deben estar pasteurizados también.",
+            "texto": "<strong>CONSUMA LÁCTEOS PASTEURIZADOS:</strong> Evite los yogures con bacterias vivas y quesos no pasteurizados. Los zumos deben estar pasteurizados también.",
             "imagen": "ensalada.png"
           },
           {
             "icono": "toxicidad.png",
-            "texto": "CARNES Y EMBUTIDOS: Asegúrese de cocinar bien las carnes y embutidos antes de consumirlos. Evite los embutidos envasados al vacío y las carnes crudas poco cocinadas.",
+            "texto": "<strong>CARNES Y EMBUTIDOS:</strong> Asegúrese de cocinar bien las carnes y embutidos antes de consumirlos. Evite los embutidos envasados al vacío y las carnes crudas poco cocinadas.",
             "imagen": "ensalada.png"
           },
           {
             "icono": "toxicidad.png",
-            "texto": "PESCADOS Y MARISCOS: Cocine adecuadamente los pescados y mariscos. Evite los mariscos crudos o poco cocinados, especialmente los de concha.",
+            "texto": "<strong>PESCADOS Y MARISCOS:</strong> Cocine adecuadamente los pescados y mariscos. Evite los mariscos crudos o poco cocinados, especialmente los de concha.",
             "imagen": "ensalada.png"
           }
         ]
@@ -473,7 +473,7 @@
   },
   {
     "id": "05",
-    "titulo": "Higiene personal, estética y tatuajes",
+    "titulo": "Higiene y prevención",
     "imagenFondo": "nutricion-bg.jpg",
     "secciones": [
       {
@@ -722,7 +722,7 @@
   },
   {
     "id": "07",
-    "titulo": "Consumo de alcohol y tabaquismo",
+    "titulo": "Alcohol y tabaco",
     "imagenFondo": "nutricion-bg.jpg",
     "secciones": [
       {
@@ -730,14 +730,10 @@
         "contenido": [
           {
             "icono": "toxicidad.png",
-            "texto": "El alcohol puede interactuar con los medicamentos inmunosupresores y afectar su eficacia.",
+            "texto": "El alcohol puede interactuar con los medicamentos inmunosupresores y afectar su eficacia.<br/><strong>Función renal:</strong> El alcohol puede dañar los riñones. Aunque un trasplante renal mejora la función renal, beber puede ser perjudicial.",
             "imagen": "ensalada.png"
           },
-          {
-            "icono": "toxicidad.png",
-            "texto": "Función renal: El alcohol puede dañar los riñones. Aunque un trasplante renal mejora la función renal, beber puede ser perjudicial.",
-            "imagen": "ensalada.png"
-          },
+
           {
             "icono": "toxicidad.png",
             "texto": "El alcohol puede interactuar con otros medicamentos que esté tomando.",
@@ -745,7 +741,7 @@
           },
           {
             "icono": "toxicidad.png",
-            "texto": "Hidratación: El alcohol puede deshidratarlo, lo que no es ideal para la salud renal. Beber agua es fundamental.",
+            "texto": "<strong>Hidratación:</strong> El alcohol puede deshidratarlo, lo que no es ideal para la salud renal. Beber agua es fundamental.",
             "imagen": "ensalada.png"
           }
         ]
@@ -765,7 +761,7 @@
 
   {
     "id": "08",
-    "titulo": "Vacunas recomendadas y viajes internacionales",
+    "titulo": "Vacunas y viajes",
     "imagenFondo": "nutricion-bg.jpg",
     "secciones": [
       {
@@ -872,7 +868,7 @@
   },
   {
     "id": "09",
-    "titulo": "Otras medidas preventivas",
+    "titulo": "Otras medidas",
     "imagenFondo": "nutricion-bg.jpg",
     "secciones": [
       {
@@ -880,42 +876,28 @@
         "contenido": [
           {
             "icono": "toxicidad.png",
-            "texto": "Evitar poseer mascotas, en especial durante el primer año posterior al trasplante. ",
+            "texto": "<ul><li>Evitar poseer mascotas, en especial durante el primer año posterior al trasplante.</li><li>Mantener a la mascota sana, con revisiones periódicas del veterinario y programa de vacunación al día.</li><li> Minimizar el contacto con animales enfermos.</li><li>Evite el contacto con reptiles como tortugas, iguanas, culebras y lagartos, pues conllevan riesgo de transmisión de Salmonella.</li></ul>",
+            "imagen": "ensalada.png"
+          },
+
+          {
+            "icono": "toxicidad.png",
+            "texto": "<ul><li>El aseo del hábitat, acuarios, comederos y deposiciones, no debería estar a cargo de una persona trasplantada. En caso de manipulación es importante usar guantes y mascarilla.</li></ul>",
             "imagen": "ensalada.png"
           },
           {
             "icono": "toxicidad.png",
-            "texto": "Mantener a la mascota sana, con revisiones periódicas del veterinario y programa de vacunación al día.",
+            "texto": "<ul><li>Evite entrar en contacto con la saliva de los animales: alimentar animales, besar a los animales en la boca, lametazos, arañazos, etc.</li></ul>",
             "imagen": "ensalada.png"
           },
           {
             "icono": "toxicidad.png",
-            "texto": "Minimizar el contacto con animales enfermos.",
+            "texto": "<ul><li>En caso de sufrir una agresión por parte de un animal (mordeduras o arañazos): lave la herida con agua y jabón durante 15 minutos y busque atención sanitaria de forma urgente.</li></ul>",
             "imagen": "ensalada.png"
           },
           {
             "icono": "toxicidad.png",
-            "texto": "Evite el contacto con reptiles como tortugas, iguanas, culebras y lagartos, pues conllevan riesgo de transmisión de Salmonella.",
-            "imagen": "ensalada.png"
-          },
-          {
-            "icono": "toxicidad.png",
-            "texto": "El aseo del hábitat, acuarios, comederos y deposiciones, no debería estar a cargo de una persona trasplantada. En caso de manipulación es importante usar guantes y mascarilla.",
-            "imagen": "ensalada.png"
-          },
-          {
-            "icono": "toxicidad.png",
-            "texto": "Evite entrar en contacto con la saliva de los animales: alimentar animales, besar a los animales en la boca, lametazos, arañazos, etc.",
-            "imagen": "ensalada.png"
-          },
-          {
-            "icono": "toxicidad.png",
-            "texto": "En caso de sufrir una agresión por parte de un animal (mordeduras o arañazos): lave la herida con agua y jabón durante 15 minutos y busque atención sanitaria de forma urgente.",
-            "imagen": "ensalada.png"
-          },
-          {
-            "icono": "toxicidad.png",
-            "texto": "Evite visitar granjas o estar en contacto con animales de granja o en su hábitat.",
+            "texto": "<ul><li>Evite visitar granjas o estar en contacto con animales de granja o en su hábitat.</li></ul>",
             "imagen": "ensalada.png"
           }
         ]
@@ -925,12 +907,7 @@
         "contenido": [
           {
             "icono": "toxicidad.png",
-            "texto": "Se evitará realizar trabajos de jardinería, ya que, al estar en contacto con tierra, plantas, flores y otros elementos naturales, estos pueden albergar microorganismos, como bacterias, hongos y parásitos, que podrían causar infecciones en personas con sistemas inmunológicos debilitados.",
-            "imagen": "ensalada.png"
-          },
-          {
-            "icono": "toxicidad.png",
-            "texto": "Si se realiza, se debe utilizar mascarilla FFP2 y guantes.",
+            "texto": "<ul><li>Se evitará realizar trabajos de jardinería, ya que, al estar en contacto con tierra, plantas, flores y otros elementos naturales, estos pueden albergar microorganismos, como bacterias, hongos y parásitos, que podrían causar infecciones en personas con sistemas inmunológicos debilitados.</li><li> Si se realiza, se debe utilizar mascarilla FFP2 y guantes.</li></ul>",
             "imagen": "ensalada.png"
           }
         ]
@@ -940,17 +917,17 @@
         "contenido": [
           {
             "icono": "toxicidad.png",
-            "texto": "Generalmente será recomendable pasear a diario. Iremos incorporando el ejercicio físico de forma continua y moderada, adaptada a su edad y capacidad física.",
+            "texto": "<ul><li>Generalmente será recomendable pasear a diario. Iremos incorporando el ejercicio físico de forma continua y moderada, adaptada a su edad y capacidad física.</li></ul>",
             "imagen": "ensalada.png"
           },
           {
             "icono": "toxicidad.png",
-            "texto": "Se recomienda al menos una caminata de 30 minutos al día si su condición física lo permite. Puede realizar otro tipo de ejercicio o deporte de mayor intensidad, consultando siempre con su médico si ha sido trasplantado del riñón.",
+            "texto": "<ul><li>Se recomienda al menos una caminata de 30 minutos al día si su condición física lo permite. Puede realizar otro tipo de ejercicio o deporte de mayor intensidad, consultando siempre con su médico si ha sido trasplantado del riñón.</li></ul>",
             "imagen": "ensalada.png"
           },
           {
             "icono": "toxicidad.png",
-            "texto": "Se aconseja que incremente su actividad paulatinamente, desaconsejándose los ejercicios que supongan esfuerzos extenuantes o puedan implicar traumatismos en la zona del injerto.",
+            "texto": "<ul><li>Se aconseja que incremente su actividad paulatinamente, desaconsejándose los ejercicios que supongan esfuerzos extenuantes o puedan implicar traumatismos en la zona del injerto.</li></ul>",
             "imagen": "ensalada.png"
           }
         ]

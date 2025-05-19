@@ -31,7 +31,7 @@ const colores = {
   texto: "#4E342E", // Marrón grisáceo
   secundario: "#F5E1C2", // Beige arena
 };
-  
+
 const cards = [
   { number: "01", text: "Inmunosupresión", id: "01" },
   { number: "02", text: "Automedicación", id: "02" },
@@ -57,125 +57,123 @@ const Dashboard: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-        <View style={styles.topBackground}>
-          <Image
-            source={require("@/assets/images/fondo-iconos-rin.png")} // ruta de tu imagen
-            style={styles.headerImage}
-            resizeMode="cover" 
-          />
+      <View style={styles.topBackground}>
+        <Image
+          source={require("@/assets/images/fondo-iconos-rin.png")} // ruta de tu imagen
+          style={styles.headerImage}
+          resizeMode="cover"
+        />
+      </View>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.title}>Hola, Alex</Text>
+        <Text style={styles.subtitle}>Guía de recomendaciones</Text>
+
+        {/* Carrusel */}
+        <Animated.FlatList
+          data={cards}
+          horizontal
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
+          snapToInterval={ancho_tarjeta + 12} // 12 = separación entre tarjetas
+          decelerationRate="fast"
+          contentContainerStyle={styles.carouselContainer}
+          ItemSeparatorComponent={() => <View style={{ width: 12 }} />} // separación entre tarjetas
+          onScroll={Animated.event(
+            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+            { useNativeDriver: true }
+          )}
+          onMomentumScrollEnd={(event) => {
+            const index = Math.round(
+              event.nativeEvent.contentOffset.x / (ancho_tarjeta + 12)
+            );
+            setActiveIndex(index);
+          }}
+          renderItem={({ item, index }) => {
+            const inputRange = [
+              (index - 1) * (ancho_tarjeta + 12),
+              index * (ancho_tarjeta + 12),
+              (index + 1) * (ancho_tarjeta + 12),
+            ];
+
+            const scale = scrollX.interpolate({
+              inputRange,
+              outputRange: [0.9, 1, 0.9],
+              extrapolate: "clamp",
+            });
+
+            return (
+              <Animated.View style={{ transform: [{ scale }] }}>
+                <TouchableOpacity
+                  style={styles.card} // no más marginRight aquí
+                  onPress={() =>
+                    router.push({
+                      pathname: "/guia/[id]",
+                      params: { id: item.id },
+                    })
+                  }
+                >
+                  <Text style={styles.cardNumber}>{item.number}</Text>
+                  <Text style={styles.cardText}>{item.text}</Text>
+                </TouchableOpacity>
+              </Animated.View>
+            );
+          }}
+        />
+
+        {/* Dots */}
+        <View style={styles.dotsContainer}>
+          {cards.map((_, index) => (
+            <View
+              key={index}
+              style={index === activeIndex ? styles.dotActive : styles.dot}
+            />
+          ))}
         </View>
-        <ScrollView contentContainerStyle={styles.container}>
-          <Text style={styles.title}>Hola, Rebeca</Text>
-          <Text style={styles.subtitle}>Guía de recomendaciones</Text>
-          
-          {/* Carrusel */}
-          <Animated.FlatList
-            data={cards}
-            horizontal
-            keyExtractor={(item) => item.id}
-            showsHorizontalScrollIndicator={false}
-            snapToInterval={ancho_tarjeta + 12} // 12 = separación entre tarjetas
-            decelerationRate="fast"
-            contentContainerStyle={styles.carouselContainer}
-            ItemSeparatorComponent={() => <View style={{ width: 12 }} />} // separación entre tarjetas
-            onScroll={Animated.event(
-              [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-              { useNativeDriver: true }
-            )}
-            onMomentumScrollEnd={(event) => {
-              const index = Math.round(
-                event.nativeEvent.contentOffset.x / (ancho_tarjeta + 12)
-              );
-              setActiveIndex(index);
-            }}
-            renderItem={({ item, index }) => {
-              const inputRange = [
-                (index - 1) * (ancho_tarjeta + 12),
-                index * (ancho_tarjeta + 12),
-                (index + 1) * (ancho_tarjeta + 12),
-              ];
 
-              const scale = scrollX.interpolate({
-                inputRange,
-                outputRange: [0.9, 1, 0.9],
-                extrapolate: "clamp",
-              });
-
-              return (
-                <Animated.View style={{ transform: [{ scale }] }}>
-                  <TouchableOpacity
-                    style={styles.card} // no más marginRight aquí
-                    onPress={() =>
-                      router.push({
-                        pathname: "/guia/[id]",
-                        params: { id: item.id },
-                      })
-                    }
-                  >
-                    <Text style={styles.cardNumber}>{item.number}</Text>
-                    <Text style={styles.cardText}>{item.text}</Text>
-                  </TouchableOpacity>
-                </Animated.View>
-              );
-            }}
+        <Text style={styles.subtitleUtilidades}>Utilidades</Text>
+        {/* Botones utilidades */}
+        <View style={{ gap: 15, marginTop: 20 }}>
+          <BotonUtilidades
+            title="Medicación"
+            icon={<Ionicons name="medkit" size={24} color={colores.primario} />}
+            onPress={() => {}}
           />
 
-          {/* Dots */}
-          <View style={styles.dotsContainer}>
-            {cards.map((_, index) => (
-              <View
-                key={index}
-                style={index === activeIndex ? styles.dotActive : styles.dot}
+          <BotonUtilidades
+            title="Próximas citas"
+            icon={
+              <FontAwesome5
+                name="calendar-check"
+                size={22}
+                color={colores.primario}
               />
-            ))}
-          </View>
+            }
+            onPress={() => {}}
+          />
 
-          <Text style={styles.subtitleUtilidades}>Utilidades</Text>
-          {/* Botones utilidades */}
-          <View style={{ gap: 15, marginTop: 20 }}>
-            <BotonUtilidades
-              title="Medicación"
-              icon={
-                <Ionicons name="medkit" size={24} color={colores.primario} />
-              }
-              onPress={() => {}}
-            />
+          <BotonUtilidades
+            title="Tensión arterial / glucosa"
+            icon={
+              <MaterialIcons
+                name="favorite"
+                size={24}
+                color={colores.primario}
+              />
+            }
+            onPress={() => {}}
+          />
 
-            <BotonUtilidades
-              title="Próximas citas"
-              icon={
-                <FontAwesome5
-                  name="calendar-check"
-                  size={22}
-                  color={colores.primario}
-                />
-              }
-              onPress={() => {}}
-            />
-
-            <BotonUtilidades
-              title="Tensión arterial / glucosa"
-              icon={
-                <MaterialIcons
-                  name="favorite"
-                  size={24}
-                  color={colores.primario}
-                />
-              }
-              onPress={() => {}}
-            />
-
-            <BotonUtilidades
-              title="Campañas vacunación"
-              icon={
-                <MaterialIcons
-                  name="vaccines"
-                  size={24}
-                  color={colores.primario}
-                />
-              }
-              onPress={() => {}}
-            />
+          <BotonUtilidades
+            title="Campañas vacunación"
+            icon={
+              <MaterialIcons
+                name="vaccines"
+                size={24}
+                color={colores.primario}
+              />
+            }
+            onPress={() => {}}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -209,19 +207,19 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: Platform.OS === "android" ? 290 : 300,
+    height: Platform.OS === "android" ? 295 : 300,
     backgroundColor: colores.primario, // el color salmón
     borderBottomLeftRadius: 80,
-    borderBottomRightRadius: 200,
+    borderBottomRightRadius: 220,
     overflow: "hidden",
     transform: [
       { scaleX: 1.05 }, // desplaza el fondo hacia arriba
     ],
-  },  
+  },
   headerImage: {
     width: "100%",
     height: "100%",
-    opacity: 0.3, 
+    opacity: 0.3,
     position: "absolute",
     top: 0,
     left: 0,
@@ -236,13 +234,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "600",
     color: colores.fondo,
-  }, 
+  },
   subtitleUtilidades: {
     marginTop: 28,
     fontSize: 20,
     fontWeight: "600",
     color: colores.texto,
-  },  
+  },
   carouselContainer: {
     paddingTop: 16,
     paddingBottom: 10,
