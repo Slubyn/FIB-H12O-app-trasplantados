@@ -34,23 +34,90 @@ const estilosPorTema: Record<
     sectionTitleColor?: string;
     backgroundColor?: string;
     colorNumber?: string;
+    tabsBackgroundColor?: string;
+    tabsColorfondo?: string;
   }
 > = {
   "01": {
     headerOverlayColor: "rgba(255,255,255,0.3)",
-    headerTituloColor: "4E342E",
-    sectionTitleColor: "#4E342E",
-    backgroundColor: "#eca332",
-    colorNumber: "4E342E",
+    headerTituloColor: "rgb(78, 52, 46)",
+    sectionTitleColor: "rgb(78, 52, 46)",
+    backgroundColor: "#FFF5E5",
+    tabsBackgroundColor: "#FFF5E5",
+    tabsColorfondo: "#F5E1C2",
+    colorNumber: "rgb(78, 52, 46)",
   },
   "02": {
-    headerOverlayColor: "rgba(0,0,0,0.3)",
-    headerTituloColor: "#FFFFFF",
-    sectionTitleColor: "#222222",
-    backgroundColor: "#E6F7FF",
-    colorNumber: "#fff9f7",
+    headerOverlayColor: "rgba(0,0,0,0.2)",
+    headerTituloColor: "rgb(255, 255, 255)",
+    sectionTitleColor: "rgb(51, 51, 51)",
+    backgroundColor: "rgb(245, 191, 187)",
+    tabsBackgroundColor: "rgb(245, 191, 187)",
+    tabsColorfondo: "rgba(236, 120, 124, 0.67)",
+    colorNumber: "rgb(34, 34, 34)",
   },
-  // Puedes añadir aquí los estilos de los otros temas...
+  "03": {
+    headerOverlayColor: "rgba(255,255,255,0.2)",
+    headerTituloColor: "rgb(78, 52, 46)",
+    sectionTitleColor: "rgb(78, 52, 46)",
+    backgroundColor: "rgb(246, 187, 223)",
+    tabsBackgroundColor: "rgb(246, 187, 223)",
+    tabsColorfondo: "rgba(195, 88, 161, 0.62)",
+    colorNumber: "rgb(78, 52, 46)",
+  },
+  "04": {
+    headerOverlayColor: "rgba(0,0,0,0.15)",
+    headerTituloColor: "rgb(255, 255, 255)",
+    sectionTitleColor: "rgb(78, 52, 46)",
+    backgroundColor: "rgb(211, 255, 210)",
+    tabsBackgroundColor: "rgb(211, 255, 210)",
+    tabsColorfondo: "rgba(99, 191, 108, 0.45)",
+    colorNumber: "rgb(78, 52, 46)",
+  },
+  "05": {
+    headerOverlayColor: "rgba(0,0,0,0.2)",
+    headerTituloColor: "rgb(255, 255, 255)",
+    sectionTitleColor: "rgb(78, 52, 46)",
+    backgroundColor: "rgb(225, 245, 254)",
+    tabsBackgroundColor: "rgb(225, 245, 254)",
+    tabsColorfondo: "rgba(18, 121, 169, 0.4)",
+    colorNumber: "rgb(51, 51, 51)",
+  },
+  "06": {
+    headerOverlayColor: "rgba(255,255,255,0.25)",
+    headerTituloColor: "rgb(78, 52, 46)",
+    sectionTitleColor: "rgb(78, 52, 46)",
+    backgroundColor: "rgb(254, 238, 182)",
+    tabsBackgroundColor: "rgb(254, 238, 182)",
+    tabsColorfondo: "rgba(170, 131, 58, 0.37)",
+    colorNumber: "rgb(78, 52, 46)",
+  },
+  "07": {
+    headerOverlayColor: "rgba(0,0,0,0.3)",
+    headerTituloColor: "rgb(255, 255, 255)",
+    sectionTitleColor: "rgb(78, 52, 46)",
+    backgroundColor: "rgb(218, 218, 218)",
+    tabsBackgroundColor: "rgb(218, 218, 218)",
+    tabsColorfondo: "rgba(107, 107, 107, 0.52)",
+    colorNumber: "rgb(78, 52, 46)",
+  },
+  "08": {
+    headerOverlayColor: "rgba(255,255,255,0.3)",
+    headerTituloColor: "rgb(78, 52, 46)",
+    sectionTitleColor: "rgb(78, 52, 46)",
+    tabsBackgroundColor: "rgb(255, 249, 172)",
+    tabsColorfondo: "rgba(225, 215, 65, 0.88)",
+    colorNumber: "rgb(78, 52, 46)",
+  },
+  "09": {
+    headerOverlayColor: "rgba(255,255,255,0.3)",
+    headerTituloColor: "rgb(78, 52, 46)",
+    sectionTitleColor: "rgb(78, 52, 46)",
+    backgroundColor: "rgb(206, 203, 178)",
+    tabsBackgroundColor: "rgb(206, 203, 178)",
+    tabsColorfondo: "rgba(173, 165, 111, 0.63)",
+    colorNumber: "rgb(78, 52, 46)",
+  },
 };
 
 export default function TestTabsSinImagenes() {
@@ -89,7 +156,12 @@ export default function TestTabsSinImagenes() {
   }
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView
+      style={[
+        styles.safeArea,
+        { backgroundColor: temaEstilos.backgroundColor },
+      ]}
+    >
       {/* barra informacion */}
       <StatusBar barStyle="dark-content" />
       <ScrollView
@@ -107,17 +179,12 @@ export default function TestTabsSinImagenes() {
             />
           )}
           <View style={styles.headerOverlay}>
-            <Text
+            {/* <Text
               style={[styles.headerNumero, { color: temaEstilos.colorNumber }]}
             >
               {String(tema.id ?? "")}
-            </Text>
-            <Text
-              style={[
-                styles.headerTitulo,
-                { color: temaEstilos.headerTituloColor },
-              ]}
-            >
+            </Text> */}
+            <Text style={[styles.headerTitulo]}>
               {String(tema.titulo ?? "")}
             </Text>
           </View>
@@ -126,7 +193,10 @@ export default function TestTabsSinImagenes() {
         {tema.secciones.length > 1 && (
           <ScrollView
             horizontal
-            style={styles.tabs}
+            style={[
+              styles.tabs,
+              { backgroundColor: temaEstilos.tabsBackgroundColor },
+            ]}
             contentContainerStyle={styles.tabsContent}
             showsHorizontalScrollIndicator={false}
           >
@@ -134,7 +204,10 @@ export default function TestTabsSinImagenes() {
               <TouchableOpacity
                 key={sec.titulo}
                 onPress={() => scrollToSection(sec.titulo)}
-                style={styles.tabButton}
+                style={[
+                  styles.tabButton,
+                  { backgroundColor: temaEstilos.tabsColorfondo },
+                ]}
               >
                 <Text
                   style={styles.tabText}
@@ -171,10 +244,41 @@ export default function TestTabsSinImagenes() {
                   contentWidth={width}
                   source={{ html: `<p>${item.texto}</p>` }}
                   tagsStyles={{
-                    strong: { color: "black", fontWeight: "bold" },
-                    p: { fontSize: 16 },
-                    li: { fontSize: 16 },
-                    ul: { fontSize: 16 },
+                    p: {
+                      fontSize: 16,
+                      color: "#4E342E",
+                      fontWeight: "normal",
+                      marginBottom: 2,
+                      lineHeight: 24,
+                      justifyContent: "center",
+                    },
+                    b: {
+                      fontWeight: "bold",
+                      color: "#4E342E",
+                    },
+                    u: {
+                      textDecorationLine: "underline",
+                      color: "#4E342E",
+                    },
+                    strong: {
+                      fontSize: 16,
+                      color: "#4E342E",
+                      fontWeight: "bold",
+                    },
+                    li: {
+                      fontSize: 16,
+                      color: "#4E342E",
+                      fontWeight: "normal",
+                      marginBottom: 5,
+                    },
+                    ul: {
+                      fontSize: 16,
+                      color: "#4E342E",
+                      fontWeight: "normal",
+                    },
+                    span: {
+                      color: "#4E342E",
+                    },
                   }}
                 />
                 {item.imagen && imageMap[item.imagen] && (
@@ -186,15 +290,99 @@ export default function TestTabsSinImagenes() {
               </View>
             ))}
             {sec.contenidoTabla?.map((fila, idx) => (
-              <View key={idx} style={styles.card}>
-                <Text style={styles.text}>
-                  <Text style={{ fontWeight: "600" }}>No coma:</Text>{" "}
-                  {String(fila.no_coma ?? "")}
-                </Text>
-                <Text style={styles.text}>
-                  <Text style={{ fontWeight: "600" }}>Elija esto:</Text>{" "}
-                  {String(fila.elija_esto ?? "")}
-                </Text>
+              <View
+                key={idx}
+                style={[
+                  styles.card,
+                  { flexDirection: "row", justifyContent: "space-between" },
+                ]}
+              >
+                <View style={{ flex: 1, marginRight: 8 }}>
+                  <RenderHTML
+                    contentWidth={width}
+                    source={{
+                      html: `<p><b>NO COMA:</b> ${fila.no_coma}</p>`,
+                    }}
+                    tagsStyles={{
+                      p: {
+                        fontSize: 16,
+                        color: "#4E342E",
+                        fontWeight: "normal",
+                        marginBottom: 2,
+                      },
+                      b: {
+                        fontWeight: "bold",
+                        color: "#4E342E",
+                      },
+                      u: {
+                        textDecorationLine: "underline",
+                        color: "#4E342E",
+                      },
+                      strong: {
+                        fontSize: 16,
+                        color: "#4E342E",
+                        fontWeight: "bold",
+                      },
+                      li: {
+                        fontSize: 16,
+                        color: "#4E342E",
+                        fontWeight: "normal",
+                        marginBottom: 5,
+                      },
+                      ul: {
+                        fontSize: 16,
+                        color: "#4E342E",
+                        fontWeight: "normal",
+                      },
+                      span: {
+                        color: "#4E342E",
+                      },
+                    }}
+                  />
+                </View>
+                <View style={{ flex: 1, marginLeft: 8 }}>
+                  <RenderHTML
+                    contentWidth={width}
+                    source={{
+                      html: `<p><b>ELIJA ESTO:</b> ${fila.elija_esto}</p>`,
+                    }}
+                    tagsStyles={{
+                      p: {
+                        fontSize: 16,
+                        color: "#4E342E",
+                        fontWeight: "normal",
+                        marginBottom: 2,
+                      },
+                      b: {
+                        fontWeight: "bold",
+                        color: "#4E342E",
+                      },
+                      u: {
+                        textDecorationLine: "underline",
+                        color: "#4E342E",
+                      },
+                      strong: {
+                        fontSize: 16,
+                        color: "#4E342E",
+                        fontWeight: "bold",
+                      },
+                      li: {
+                        fontSize: 16,
+                        color: "#4E342E",
+                        fontWeight: "normal",
+                        marginBottom: 5,
+                      },
+                      ul: {
+                        fontSize: 16,
+                        color: "#4E342E",
+                        fontWeight: "normal",
+                      },
+                      span: {
+                        color: "#4E342E",
+                      },
+                    }}
+                  />
+                </View>
               </View>
             ))}
           </View>
@@ -237,15 +425,16 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     justifyContent: "center",
     alignItems: "center",
+    borderRadius: 15,
   },
   headerOverlay: {
     padding: 10,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(227, 227, 227, 0.29)",
+    backgroundColor: "rgba(197, 197, 197, 0.38)",
     borderTopLeftRadius: 20,
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
     borderTopRightRadius: 20,
   },
   headerNumero: {
@@ -258,6 +447,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     color: "black",
+    textAlign: "center",
   },
   tabs: {
     paddingHorizontal: 10,
@@ -269,16 +459,21 @@ const styles = StyleSheet.create({
   tabsContent: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
   },
   tabButton: {
     minWidth: 100,
     marginRight: 12,
     paddingVertical: 6,
     paddingHorizontal: 14,
-    backgroundColor: "#F5E1C2",
+    // backgroundColor: "red",
     borderRadius: 14,
+
+    alignItems: "center",
   },
   tabText: {
+    justifyContent: "center",
+    // alignItems: "center",
     fontSize: 14,
     fontWeight: "600",
     color: "#4E342E",
@@ -306,11 +501,16 @@ const styles = StyleSheet.create({
       ? {
           shadowColor: "rgba(0, 0, 0, 0.81)",
           shadowOffset: { width: 0, height: 4 },
-          shadowOpacity: 0.3,
+          shadowOpacity: 0.5,
           shadowRadius: 5,
         }
       : {
-          elevation: 3,
+          elevation: 5,
+          shadowColor: "rgba(0, 0, 0, 0.95)",
+
+          shadowOpacity: 5,
+          shadowRadius: 25,
+          textShadowOffset: { width: 25, height: 15 },
         }),
 
     gap: 12,
@@ -342,7 +542,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     width: "100%",
-    height: 300,
+    height: 200,
   },
   imageRight: {
     width: 60,

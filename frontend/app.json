@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "app-H12O",
+    "name": "KidneCare",
     "slug": "app-H12O",
     "sdkVersion": "53.0.0",
 
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "./assets/images/iconApp.png",
+    "scheme": "kidnecare",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {

@@ -3,7 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity, //efecto visual de click, hace elementos "presionables"
+  TouchableOpacity, //efecto  de click, hace elementos "presionables"
   Dimensions, //devuelve el tamaño de la pantalla de algo
   SafeAreaView, //para compatibilidad, evita que algunas cosas se evan ocultas
   Platform, //para aplicar estilos o comportamiento especifico para cada plataforma
@@ -33,15 +33,60 @@ const colores = {
 };
 
 const cards = [
-  { number: "01", text: "Inmunosupresión", id: "01" },
-  { number: "02", text: "Automedicación", id: "02" },
-  { number: "03", text: "Salud sexual", id: "03" },
-  { number: "04", text: "Alimentación", id: "04" },
-  { number: "05", text: "Higiene y estética", id: "05" },
-  { number: "06", text: "Exposición al sol", id: "06" },
-  { number: "07", text: "Alcohol y tabaco", id: "07" },
-  { number: "08", text: "Vacunas y viajes", id: "08" },
-  { number: "09", text: "Medidas preventivas", id: "09" },
+  {
+    number: "01",
+    text: "Inmunosupresión",
+    id: "01",
+    imagen: require("@/assets/images/guia-fondo/Tema1.png"),
+  },
+  {
+    number: "02",
+    text: "Automedicación",
+    id: "02",
+    imagen: require("@/assets/images/guia-fondo/Tema2.png"),
+  },
+  {
+    number: "03",
+    text: "Salud sexual",
+    id: "03",
+    imagen: require("@/assets/images/guia-fondo/Tema3.png"),
+  },
+  {
+    number: "04",
+    text: "Alimentación",
+    id: "04",
+    imagen: require("@/assets/images/guia-fondo/Tema4.png"),
+  },
+  {
+    number: "05",
+    text: "Higiene y estética",
+    id: "05",
+    imagen: require("@/assets/images/guia-fondo/Tema5.png"),
+  },
+  {
+    number: "06",
+    text: "Exposición al sol",
+    id: "06",
+    imagen: require("@/assets/images/guia-fondo/Tema6.png"),
+  },
+  {
+    number: "07",
+    text: "Alcohol y tabaco",
+    id: "07",
+    imagen: require("@/assets/images/guia-fondo/Tema7.png"),
+  },
+  {
+    number: "08",
+    text: "Vacunas y viajes",
+    id: "08",
+    imagen: require("@/assets/images/guia-fondo/Tema8.png"),
+  },
+  {
+    number: "09",
+    text: "Medidas preventivas",
+    id: "09",
+    imagen: require("@/assets/images/guia-fondo/Tema9.png"),
+  },
 ];
 
 const Dashboard: React.FC = () => {
@@ -65,7 +110,7 @@ const Dashboard: React.FC = () => {
         />
       </View>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.title}>Hola, Alex</Text>
+        <Text style={styles.title}>Bienvenido 😊</Text>
         <Text style={styles.subtitle}>Guía de recomendaciones</Text>
 
         {/* Carrusel */}
@@ -104,7 +149,6 @@ const Dashboard: React.FC = () => {
             return (
               <Animated.View style={{ transform: [{ scale }] }}>
                 <TouchableOpacity
-                  style={styles.card} // no más marginRight aquí
                   onPress={() =>
                     router.push({
                       pathname: "/guia/[id]",
@@ -112,8 +156,15 @@ const Dashboard: React.FC = () => {
                     })
                   }
                 >
-                  <Text style={styles.cardNumber}>{item.number}</Text>
-                  <Text style={styles.cardText}>{item.text}</Text>
+                  <ImageBackground
+                    source={item.imagen}
+                    style={styles.card}
+                    imageStyle={{ borderRadius: 16 }} // redondear imagen
+                  >
+                    <View style={styles.cardOverlay}>
+                      <Text style={styles.cardText}>{item.text}</Text>
+                    </View>
+                  </ImageBackground>
                 </TouchableOpacity>
               </Animated.View>
             );
@@ -176,6 +227,15 @@ const Dashboard: React.FC = () => {
           />
         </View>
       </ScrollView>
+      {/* Logo empresa abajo a la derecha */}
+      <Image
+        source={require("@/assets/images/guia-fondo/logo_12-de-octubre.png")}
+        style={styles.logo}
+      />
+      <Image
+        source={require("@/assets/images/guia-fondo/logofundacion.png")}
+        style={styles.logo2}
+      />
     </SafeAreaView>
   );
 };
@@ -199,6 +259,27 @@ const styles = StyleSheet.create({
     marginTop: 16,
     paddingBottom: Platform.OS === "ios" ? 10 : 40,
   },
+  logo: {
+    position: "absolute",
+    bottom: 20,
+    right: 20,
+    width: 125,
+    height: 60,
+    resizeMode: "contain",
+    opacity: 0.85,
+    zIndex: 10,
+  },
+  logo2: {
+    position: "absolute",
+    bottom: 20,
+    left: 28,
+    width: 80,
+    height: 60,
+    resizeMode: "contain",
+    opacity: 0.85,
+    zIndex: 10,
+  },
+
   topBackground: {
     flex: 1,
     justifyContent: "flex-end",
@@ -216,6 +297,14 @@ const styles = StyleSheet.create({
       { scaleX: 1.05 }, // desplaza el fondo hacia arriba
     ],
   },
+  cardOverlay: {
+    backgroundColor: "rgba(231, 233, 232, 0.43)",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 16,
+  },
+
   headerImage: {
     width: "100%",
     height: "100%",
@@ -269,10 +358,15 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   cardText: {
-    fontSize: 16,
+    fontSize: 21,
     textAlign: "center",
     fontWeight: "500",
     color: "#4E342E",
+    // shadowColor: "rgba(135, 141, 139, 0.89)",
+    // shadowOpacity: 0.5,
+    // shadowOffset: { width: 3.5, height: 2 },
+    // shadowRadius: 0.8,
+    // elevation: 1,
   },
   dotsContainer: {
     flexDirection: "row",
